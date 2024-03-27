@@ -23,11 +23,11 @@ export default {
     <div class="about_container">
       <p id="txToChange" class="about_paragraph">
         👋 I'm Stefano ! <br>
-        My family name means 🍎 <br />
+        My family name means 🍎 .. and guess from which device I code ? <br />
         I have just started my journey through coding and I can't wait to kick
-        off this career. <br />
+        off this career ! <br />
         In this portfolio you'll find my works and projects, other than my salty
-        tears and désespoir for when code don't go as planned......
+        tears and désespoir for when code don't go as planned...
       </p>
       <div class="links">
         <div class="work_link">

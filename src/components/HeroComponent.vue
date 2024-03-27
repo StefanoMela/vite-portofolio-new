@@ -18,19 +18,40 @@ export default {
     toggleTimeline() {
       this.tl.reversed(!this.tl.reversed());
     },
+    animateTitle() {
+      this.ctx = gsap.context((self) => {
+        const elements = self.selector(".animated-el");
+        this.tl = gsap
+          .timeline()
+          .from(elements[0], { y: -700, duration: 1, ease: "bounce.out" })
+          .from(elements[1], {
+            y: -450,
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .from(elements[2], {
+            y: -500,
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .from(elements[3], {
+            y: -550,
+            duration: 1,
+            ease: "power2.inOut",
+            
+          })
+          .from(elements[4], {
+            y: -600,
+            duration: 1,
+            stagger: 0.05,
+            ease: "bounce.out",
+          })
+          .reverse();
+      }, this.$refs.scene);
+    },
   },
   mounted() {
-    this.ctx = gsap.context((self) => {
-      const elements = self.selector(".animated-el");
-      this.tl = gsap
-        .timeline()
-        .from(elements[0], { y: -700 })
-        .from(elements[1], { y: -450, stagger: 0.05 })
-        .from(elements[2], { y: -500, stagger: 0.05 })
-        .from(elements[3], { y: -550, stagger: 0.05 })
-        .from(elements[4], { y: -600, stagger: 0.05 })
-        .reverse();
-    }, this.$refs.main);
+    this.animateTitle();
   },
   beforeUnmount() {
     this.ctx.revert();
@@ -40,19 +61,25 @@ export default {
 
 <template>
   <!-- Main Section w/ animation -->
-  <section class="main wrapper">
+  <section class="main wrapper"
+  ref="scene"
+  @mouseenter="toggleTimeline"
+  >
     <div class="link-container">
       <a href="">about</a>
       <a href="">contact</a>
       <a href="">works</a>
     </div>
-    <div class="container-fluid animation-box mt-3 px-5 py-3" @mouseenter="toggleTimeline" >
-      <div class="hero"  ref="main">
-        <div class=" animated-el img-container" key="k1"></div>
+    <div
+      class="container-fluid animation-box mt-3 px-5 py-3">
+      <div class="hero">
+        <div class="animated-el img-container" key="k1">
+          <img src="../assets/img/avatar.svg" alt="pro-pic" class="profile-pic"
+        </div>
         <div class="txt-container" key="k2">
-          <h1 class="animated-el" >Hello ! <br /></h1>
-          <h2 class="animated-el" >I'm Stefano Mela</h2>
-          <h3 class="animated-el" >A Jr Full Stack Web Developer</h3>
+          <h1 class="animated-el">Hello ! <br /></h1>
+          <h2 class="animated-el">I'm Stefano Mela</h2>
+          <h3 class="animated-el">A Jr Full Stack Web Developer</h3>
         </div>
         <!-- Scroll Button -->
         <div class="animated-el scroll-btn" cursor="pointer" key="k3">
@@ -83,7 +110,6 @@ export default {
     margin: 0 1rem;
   }
 }
-
 .animation-box {
   height: 100%;
   display: flex;
@@ -100,10 +126,18 @@ export default {
 .img-container {
   width: 200px;
   height: 200px;
-  border: 1px solid red;
+}
+.profile-pic{
+  max-width: 100%;
+  border-radius: 50%;
 }
 
-.scroll-btn{
+.txt-container{
+  h3{
+    font-weight: bolder;
+  }
+}
+.scroll-btn {
   position: absolute;
   transform: translateY(150px);
 }
