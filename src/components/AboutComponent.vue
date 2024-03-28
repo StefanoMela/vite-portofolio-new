@@ -1,6 +1,5 @@
 <script>
-import gsap from 'gsap';
-
+import gsap from "gsap";
 
 export default {
   methods: {
@@ -12,8 +11,8 @@ export default {
     },
   },
   mounted() {
-    this.textChange()
-  }
+    this.textChange();
+  },
 };
 </script>
 
@@ -22,7 +21,7 @@ export default {
   <section class="about container-fluid" id="about">
     <div class="about_container">
       <p id="txToChange" class="about_paragraph">
-        👋 I'm Stefano ! <br>
+        👋 I'm Stefano ! <br />
         My family name means 🍎 .. and guess from which device I code ? <br />
         I have just started my journey through coding and I can't wait to kick
         off this career ! <br />
@@ -31,15 +30,18 @@ export default {
       </p>
       <div class="links">
         <div class="work_link">
-          <a href="works"></a>
           <div class="gold"></div>
-          <span>See some works</span>
+          <RouterLink :to="{ name: 'works' }">
+            See some works
+          </RouterLink>
           <v-icon name="hi-arrow-narrow-right" />
         </div>
         <div class="contact_link">
-          <a href="contacts"></a>
           <div class="gold-2"></div>
-          <span>Holla at me !</span>
+          <RouterLink
+          :to="{name: 'contacts'}">
+          Holla @ Me !
+          </RouterLink>
           <v-icon name="hi-arrow-narrow-right" />
         </div>
       </div>
@@ -48,7 +50,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 .about {
   height: 100vh;
 }
@@ -73,7 +74,7 @@ export default {
   justify-content: center;
   gap: 4rem;
   span {
-    margin: .4rem;
+    margin: 0.4rem;
   }
 }
 </style>

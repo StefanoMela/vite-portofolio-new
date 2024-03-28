@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import LandingPage from '../pages/LandingPage.vue';
 import ContactPage from '../pages/ContactPage.vue';
+import WorkPage from '../pages/WorkPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,11 @@ const router = createRouter({
             path: '/contacts',
             name: 'contacts',
             component: ContactPage,
+        },
+        {
+            path: '/works',
+            name: 'works',
+            component: WorkPage,
         },
     ]
 });

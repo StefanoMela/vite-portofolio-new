@@ -23,28 +23,27 @@ export default {
         const elements = self.selector(".animated-el");
         this.tl = gsap
           .timeline()
-          .from(elements[0], { y: -700, duration: 1, ease: "bounce.out" })
+          .from(elements[0], { y: -700, duration: 0.8, ease: "bounce.out" })
           .from(elements[1], {
             y: -450,
-            duration: 1,
+            duration: 0.8,
             ease: "power2.inOut",
           })
           .from(elements[2], {
             y: -500,
-            duration: 1,
+            duration: 0.8,
             ease: "power2.inOut",
           })
           .from(elements[3], {
             y: -550,
-            duration: 1,
+            duration: 0.8,
             ease: "power2.inOut",
-            
           })
           .from(elements[4], {
             y: -600,
-            duration: 1,
+            duration: 0.8,
             stagger: 0.05,
-            ease: "bounce.out",
+            ease: "power2.inOut",
           })
           .reverse();
       }, this.$refs.scene);
@@ -61,24 +60,19 @@ export default {
 
 <template>
   <!-- Main Section w/ animation -->
-  <section class="main wrapper"
-  ref="scene"
-  @mouseenter="toggleTimeline"
-  >
+  <section class="main wrapper" ref="scene" @mouseenter="toggleTimeline">
     <div class="link-container">
-      <a href="">about</a>
-      <a href="">contact</a>
-      <a href="">works</a>
+      <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
+      <RouterLink :to="{ name: 'works' }">Works</RouterLink>
     </div>
-    <div
-      class="container-fluid animation-box mt-3 px-5 py-3">
+    <div class="container-fluid animation-box mt-3 px-5 py-3">
       <div class="hero">
         <div class="animated-el img-container" key="k1">
           <img src="../assets/img/avatar.svg" alt="pro-pic" class="profile-pic"
         </div>
         <div class="txt-container" key="k2">
           <h1 class="animated-el">Hello ! <br /></h1>
-          <h2 class="animated-el">I'm Stefano Mela</h2>
+          <h2 class="animated-el">I'm Stefano</h2>
           <h3 class="animated-el">A Jr Full Stack Web Developer</h3>
         </div>
         <!-- Scroll Button -->
@@ -127,13 +121,13 @@ export default {
   width: 200px;
   height: 200px;
 }
-.profile-pic{
+.profile-pic {
   max-width: 100%;
   border-radius: 50%;
 }
 
-.txt-container{
-  h3{
+.txt-container {
+  h3 {
     font-weight: bolder;
   }
 }
