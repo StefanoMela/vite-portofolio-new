@@ -15,9 +15,6 @@ export default {
     "v-icon": OhVueIcon,
   },
   methods: {
-    toggleTimeline() {
-      this.tl.reversed(!this.tl.reversed());
-    },
     animateTitle() {
       this.ctx = gsap.context((self) => {
         const elements = self.selector(".animated-el");
@@ -45,7 +42,6 @@ export default {
             stagger: 0.05,
             ease: "power2.inOut",
           })
-          .reverse();
       }, this.$refs.scene);
     },
   },
@@ -60,7 +56,7 @@ export default {
 
 <template>
   <!-- Main Section w/ animation -->
-  <section class="main wrapper" ref="scene" @mouseenter="toggleTimeline">
+  <section class="main wrapper" ref="scene">
     <div class="link-container">
       <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
       <RouterLink :to="{ name: 'works' }">Works</RouterLink>

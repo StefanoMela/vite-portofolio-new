@@ -7,8 +7,13 @@ export default {
 </script>
 
 <template>
-  <RouterView />
+  <div class="wrap">
+    <RouterView />
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.wrap{
+  height: 100%;
+}
 </style>
