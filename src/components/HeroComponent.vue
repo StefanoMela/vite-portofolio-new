@@ -65,7 +65,7 @@ export default {
       <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
       <RouterLink :to="{ name: 'works' }">Works</RouterLink>
     </div>
-    <div class="container-fluid animation-box mt-3 px-5 py-3">
+    <div class="container-fluid animation-box px-5 py-3">
       <div class="hero">
         <div class="animated-el img-container" key="k1">
           <img src="../assets/img/avatar.svg" alt="pro-pic" class="profile-pic"
