@@ -95,6 +95,8 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   height: 100vh;
+  background-color: #133c55;
+  color: rgb(233, 200, 13);
 }
 
 .link-container {

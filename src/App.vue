@@ -7,9 +7,7 @@ export default {
 </script>
 
 <template>
-<div class="container-fluid">
   <RouterView />
-</div>
 </template>
 
 <style lang="scss" scoped>
