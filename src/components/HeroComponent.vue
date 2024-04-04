@@ -4,60 +4,17 @@ import gsap from "gsap";
 import { OhVueIcon } from "oh-vue-icons";
 
 export default {
-  data() {
-    return {
-      tl: null,
-      ctx: null,
-      isClicked: false,
-    };
-  },
   components: {
     "v-icon": OhVueIcon,
   },
-  methods: {
-    animateTitle() {
-      this.ctx = gsap.context((self) => {
-        const elements = self.selector(".animated-el");
-        this.tl = gsap
-          .timeline()
-          .from(elements[0], { y: -700, duration: 0.8, ease: "bounce.out" })
-          .from(elements[1], {
-            y: -450,
-            duration: 0.8,
-            ease: "power2.inOut",
-          })
-          .from(elements[2], {
-            y: -500,
-            duration: 0.8,
-            ease: "power2.inOut",
-          })
-          .from(elements[3], {
-            y: -550,
-            duration: 0.8,
-            ease: "power2.inOut",
-          })
-          .from(elements[4], {
-            y: -600,
-            duration: 0.8,
-            stagger: 0.05,
-            ease: "power2.inOut",
-          })
-      }, this.$refs.scene);
-    },
-  },
-  mounted() {
-    this.animateTitle();
-  },
-  beforeUnmount() {
-    this.ctx.revert();
-  },
+  methods: {},
 };
 </script>
 
 <template>
   <!-- Main Section w/ animation -->
-  <section class="main wrapper" ref="scene">
-    <div class="link-container">
+  <section class="wrapper">
+    <div class="link-container p-3">
       <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
       <RouterLink :to="{ name: 'works' }">Works</RouterLink>
     </div>
@@ -73,15 +30,16 @@ export default {
         </div>
         <!-- Scroll Button -->
         <div class="animated-el scroll-btn" cursor="pointer" key="k3">
-          <a href="#about">
-            <v-icon
-              @click="$emit('isClicked')"
-              name="fa-regular-hand-point-down"
-              scale="2.5"
-              animation="float"
-              speed="fast"
-            />
-          </a>
+          <RouterLink :to="{ name: 'about' }">
+            <span>
+              <v-icon
+                name="fa-regular-hand-point-down"
+                scale="2.5"
+                animation="float"
+                speed="fast"
+              />
+            </span>
+          </RouterLink>
         </div>
       </div>
     </div>
