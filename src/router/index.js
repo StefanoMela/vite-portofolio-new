@@ -7,6 +7,7 @@ import AboutPage from "../pages/AboutPage.vue";
 
 const router = createRouter({
     history: createWebHistory(),
+    scrollBehavior: false,
     routes: [
         {
             path: '/',

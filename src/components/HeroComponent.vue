@@ -1,6 +1,4 @@
 <script>
-import gsap from "gsap";
-
 import { OhVueIcon } from "oh-vue-icons";
 
 export default {
@@ -14,6 +12,14 @@ export default {
 <template>
   <!-- Hero Section -->
   <section class="hero container-fluid">
+    <div class="link-container poppins-bold">
+      <RouterLink :to="{ name: 'contacts' }"
+        >< Contacts / >
+      </RouterLink>
+      <RouterLink :to="{ name: 'works' }">
+        < Works / >
+      </RouterLink>
+    </div>
     <div class="overlay"></div>
     <div class="hero_content">
       <div class="row">
@@ -67,7 +73,6 @@ export default {
   position: relative;
   text-align: center;
 
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,6 +93,23 @@ export default {
 
   span {
     font-size: 1rem;
+  }
+}
+
+.link-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 3rem;
+  margin-right: 1.5rem;
+  
+  color: #cc0029;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  z-index: 1;
+
+  :nth-child(2){
+    margin-left: 2.5rem;
   }
 }
 
@@ -115,7 +137,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .scroller {
