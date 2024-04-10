@@ -6,6 +6,7 @@
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="../assets/img/avatar.svg" class="card-img-top" alt="..." />
+          <h2 class="prj-title poppins">Titolo Progetto</h2>
         </div>
         <div class="flip-card-back">
             <p class="card-text">
@@ -22,6 +23,7 @@
 .flip-card {
   perspective: 1000px;
   width: 18rem;
+  background-color: #ffffff;
 }
 
 .flip-card-inner {
@@ -43,6 +45,14 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.prj-title{
+  color: #cc0029;
+}
+
+.card-text{
+  color: #999999;
 }
 
 .flip-card-back {

@@ -2,14 +2,8 @@
 import gsap from "gsap/gsap-core";
 
 import { OhVueIcon } from "oh-vue-icons";
-import { stackImgs } from "../data";
 
 export default {
-  data() {
-    return {
-      stackImgs,
-    };
-  },
   components: {
     "v-icon": OhVueIcon,
   },
