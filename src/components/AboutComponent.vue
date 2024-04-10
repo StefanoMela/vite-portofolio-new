@@ -1,7 +1,15 @@
 <script>
+import gsap from "gsap/gsap-core";
+
 import { OhVueIcon } from "oh-vue-icons";
+import { stackImgs } from "../data";
 
 export default {
+  data() {
+    return {
+      stackImgs,
+    };
+  },
   components: {
     "v-icon": OhVueIcon,
   },
@@ -10,29 +18,44 @@ export default {
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid px-3">
-    <div class="overlay"></div>
-    <div class="row">
+  <section id="about" class="container-fluid p-0">
+    <h2 class="poppins-black title">about</h2>
+    <h1 class="big">about</h1>
+    <div class="row stripe">
       <div class="col">
-        <h1 class="poppins-extrabold title">about</h1>
-        <img src="/src/assets/img/avatar.svg" alt="avatar" />
         <div class="about_info">
-          <p class="about_text raleway-reg text-center">
-            I'm Stefano<br />
-            Islander <br />
-            Hearts on: minimalistic, clean, linear design <br />
-            Passionate about: basketball, reading, music, films, trekking <br />
+          <div class="overlay"></div>
+          <p class="about_text raleway-reg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+            recusandae, facilis ullam magni cumque at, quidem eum velit
+            praesentium qui quo vitae expedita enim. Saepe cumque rerum neque
+            rem placeat?
           </p>
         </div>
-        <button class="btn">
-          <v-icon name="bi-megaphone" class="mx-1" />
+      </div>
+      <div class="col">
+        <h2 class="poppins-black stack_title">Working Tools</h2>
+        <div class="stack_container d-flex flex-wrap gap-3">
+          <img src="../assets/img/stacks/html.png" alt="" />
+          <img src="../assets/img/stacks/css.png" alt="" />
+          <img src="../assets/img/stacks/js.png" alt="" />
+          <img src="../assets/img/stacks/bootstrap.png" alt="" />
+          <img src="../assets/img/stacks/vue.png" alt="" />
+          <img src="../assets/img/stacks/axios.svg" alt="" />
+          <img src="../assets/img/stacks/php.png" alt="" />
+          <img src="../assets/img/stacks/laravel.svg" alt="" />
+          <img src="../assets/img/stacks/mysql.png" alt="" />
+          <img src="../assets/img/stacks/node.png" alt="" />
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="btn red">
+          <v-icon name="bi-megaphone"scale="1.5"/>
           Holla @ Me !
         </button>
-        <RouterLink :to="{ name: 'works' }">
-          <button class="btn btn-outline-dark mx-3">
-            <v-icon name="ri-code-s-slash-fill" class="mx-1" />
-            Works !
-          </button>
+        <RouterLink :to="{ name: 'works' }" class="btn mx-3">
+          <v-icon name="ri-code-s-slash-fill" scale="1.5" />
+          Works !
         </RouterLink>
       </div>
     </div>
@@ -41,36 +64,24 @@ export default {
 
 <style lang="scss" scoped>
 #about {
-  background: #151515 url("src/assets/img/about-bg2.jpeg") no-repeat center;
+  background: url("src/assets/img/pxfuel.jpg") no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
   width: 100%;
   min-height: 800px;
 
-  color: white;
-
-  padding: 3rem 0;
   text-align: center;
   position: relative;
 
-  h1,
-  h2 {
-    text-transform: uppercase;
-  }
-  p {
-    font-size: 3rem;
-    text-align: start;
-    z-index: 999;
-    
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .title {
-    color: #cc0029;
-    font-weight: bolder;
-    letter-spacing: 0.2rem;
-    position: relative;
-    z-index: 999;
+  h1,
+  h2,
+  h3 {
+    text-transform: uppercase;
   }
 }
 
@@ -81,23 +92,70 @@ export default {
   width: 100%;
   height: 100%;
   background: #111111;
-  opacity: 0.70;
+  opacity: 0.1;
 }
 
-.about_info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.stripe {
+  background: url("src/assets/img/honey-white.png") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 350px;
 
+  padding: 2rem;
+
+  position: relative;
 }
-img {
-  max-width: 20%;
-  margin: 3rem 0;
+
+.about_text {
+  padding: 2rem;
+  text-align: left;
+}
+
+.title {
+  color: #cc0029;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+  position: absolute;
+  top: 50px;
+  z-index: 999;
+}
+
+.big {
+  position: absolute;
+  top: 30px;
+  left: 40%;
+  font-size: 7rem;
+  color: rgba(255, 255, 255, 0.226);
+  z-index: 1;
+  font-weight: 900;
+}
+
+.stack_title {
+  color: #cc0029;
   position: relative;
   z-index: 999;
 }
 
-.btn{
+// .striped {
+//   padding: 2rem;
+//   background-color: white;
+//   width: 100%;
+//   border-radius: 2rem;
+// }
+
+img {
+  max-width: 15%;
+  position: relative;
   z-index: 999;
+}
+
+.btn-container > *{
+  position: relative;
+  z-index: 999;
+}
+.btn {
+ margin-top: 2rem;
+ font-size: 1.3rem;
 }
 </style>

@@ -19,16 +19,16 @@ import { RiCodeSSlashFill } from "oh-vue-icons/icons";
 import { FaInstagram } from "oh-vue-icons/icons";
 import { FaGithub } from "oh-vue-icons/icons";
 import { FaLinkedin } from "oh-vue-icons/icons";
-// import { ViFileTypeHtml } from "oh-vue-icons/icons";
-// import { ViFileTypeCss } from "oh-vue-icons/icons";
-// import { ViFileTypeJsOfficial } from "oh-vue-icons/icons";
-// import { ViFileTypeVue } from "oh-vue-icons/icons";
-// import { ViFileTypePhp } from "oh-vue-icons/icons";
-// import { ViFileTypeMysql } from "oh-vue-icons/icons";
+import { ViFileTypeHtml } from "oh-vue-icons/icons";
+import { ViFileTypeCss } from "oh-vue-icons/icons";
+import { ViFileTypeJsOfficial } from "oh-vue-icons/icons";
+import { ViFileTypeVue } from "oh-vue-icons/icons";
+import { ViFileTypePhp } from "oh-vue-icons/icons";
+import { ViFileTypeMysql } from "oh-vue-icons/icons";
 // import { ViFileTypeSwift } from "oh-vue-icons/icons";
 // import { BiBalloonHeartFill } from "oh-vue-icons/icons";
 // addIcons(FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql, ViFileTypeSwift, BiBalloonHeartFill);
-addIcons(BiMegaphone, RiCodeSSlashFill, FaInstagram, FaGithub, FaLinkedin)
+addIcons(BiMegaphone, RiCodeSSlashFill, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql)
 
 // import style
 import './assets/css/style.scss'
