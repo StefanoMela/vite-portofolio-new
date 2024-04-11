@@ -23,36 +23,35 @@ export default {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             deleniti architecto dolor atque doloremque autem eius expedita
             corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
-            illo eos eum necessitatibus.
-            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
-            illo eos eum necessitatibus.
-            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
-            illo eos eum necessitatibus.
+            illo eos eum necessitatibus. corporis corrupti voluptate debitis
+            totam quasi sint! Ad molestiae illo eos eum necessitatibus. corporis
+            corrupti voluptate debitis totam quasi sint! Ad molestiae illo eos
+            eum necessitatibus.
           </p>
         </div>
       </div>
-        <div class="col">
-          <h2 class="poppins-black stack_title">Working Tools</h2>
-          <div class="stack_container">
-            <v-icon name="vi-file-type-html" scale="3" />
-            <v-icon name="vi-file-type-css" scale="3" />
-            <img src="../assets/img/stacks/bootstrap.png" alt="" />
-            <v-icon name="vi-file-type-js-official" scale="3" />
-            <v-icon name="vi-file-type-vue" scale="3" />
-            <img src="../assets/img/stacks/axios.svg" alt="" />
-            <v-icon name="vi-file-type-php" scale="3" />
-            <v-icon name="vi-file-type-mysql" scale="3" />
-            <img src="../assets/img/stacks/node.png" alt="" />
-            <img src="../assets/img/stacks/laravel.svg" alt="" />
-          </div>
+      <div class="col px-0">
+        <div class="tools_container">
+          <h2 class="poppins-black tools_title">Working Tools</h2>
+          <v-icon name="vi-file-type-html" scale="3" />
+          <v-icon name="vi-file-type-css" scale="3" />
+          <img src="../assets/img/stacks/bootstrap.png" alt="" />
+          <v-icon name="vi-file-type-js-official" scale="3" />
+          <v-icon name="vi-file-type-vue" scale="3" />
+          <img src="../assets/img/stacks/axios.svg" alt="" />
+          <v-icon name="vi-file-type-php" scale="3" />
+          <v-icon name="vi-file-type-mysql" scale="3" />
+          <img src="../assets/img/stacks/node.png" alt="" />
+          <img src="../assets/img/stacks/laravel.svg" alt="" />
         </div>
+      </div>
       <div class="btn-container">
-        <button class="btn red">
-          <v-icon name="bi-megaphone" scale="1.5" />
+        <button class="btn poppins-bold">
+          <v-icon name="bi-megaphone" scale="1.7" />
           Holla @ Me !
         </button>
-        <RouterLink :to="{ name: 'works' }" class="btn mx-3">
-          <v-icon name="ri-code-s-slash-fill" scale="1.5" />
+        <RouterLink :to="{ name: 'works' }" class="btn poppins-bold mx-3">
+          <v-icon name="ri-code-s-slash-fill" scale="1.7" />
           Works !
         </RouterLink>
       </div>
@@ -84,9 +83,9 @@ export default {
 }
 
 .stripe {
-  // background: url("src/assets/img/honey-white.png") no-repeat center;
-  // background-size: cover;
-  // background-attachment: fixed;
+  background: url("src/assets/img/honey-white.png") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
   background-color: #ffffff;
   width: 100%;
 
@@ -127,16 +126,20 @@ export default {
   font-weight: 900;
 }
 
-.stack_title {
+.tools_title {
   color: #cc0029;
   position: relative;
   z-index: 999;
   margin: 1rem 0;
 }
 
-.stack_container {
-  position: relative;
-  z-index: 999;
+.tools_container {
+  background: url("../assets/img/pxfuel.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  height: 100px;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -150,12 +153,11 @@ export default {
   }
 }
 
-.btn-container > * {
-  position: relative;
-  z-index: 999;
-}
 .btn {
-  margin-top: 2rem;
+  margin: 2rem 0;
   font-size: 1.3rem;
+  
+  color: black;
+  border: 3px solid #cc0029;
 }
 </style>
