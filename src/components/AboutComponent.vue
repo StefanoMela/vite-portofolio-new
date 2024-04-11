@@ -16,35 +16,39 @@ export default {
     <h2 class="poppins-black title">about</h2>
     <h1 class="big">about</h1>
     <div class="row stripe">
-      <div class="col">
-        <div class="about_info">
+      <div class="col-12">
+        <div class="about_info d-flex justify-content-center">
           <div class="overlay"></div>
-          <p class="about_text raleway-reg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-            recusandae, facilis ullam magni cumque at, quidem eum velit
-            praesentium qui quo vitae expedita enim. Saepe cumque rerum neque
-            rem placeat?
+          <p class="about_text w-50 raleway-reg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+            deleniti architecto dolor atque doloremque autem eius expedita
+            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
+            illo eos eum necessitatibus.
+            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
+            illo eos eum necessitatibus.
+            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
+            illo eos eum necessitatibus.
           </p>
         </div>
       </div>
-      <div class="col">
-        <h2 class="poppins-black stack_title">Working Tools</h2>
-        <div class="stack_container d-flex flex-wrap gap-3">
-          <img src="../assets/img/stacks/html.png" alt="" />
-          <img src="../assets/img/stacks/css.png" alt="" />
-          <img src="../assets/img/stacks/js.png" alt="" />
-          <img src="../assets/img/stacks/bootstrap.png" alt="" />
-          <img src="../assets/img/stacks/vue.png" alt="" />
-          <img src="../assets/img/stacks/axios.svg" alt="" />
-          <img src="../assets/img/stacks/php.png" alt="" />
-          <img src="../assets/img/stacks/laravel.svg" alt="" />
-          <img src="../assets/img/stacks/mysql.png" alt="" />
-          <img src="../assets/img/stacks/node.png" alt="" />
+        <div class="col">
+          <h2 class="poppins-black stack_title">Working Tools</h2>
+          <div class="stack_container">
+            <v-icon name="vi-file-type-html" scale="3" />
+            <v-icon name="vi-file-type-css" scale="3" />
+            <img src="../assets/img/stacks/bootstrap.png" alt="" />
+            <v-icon name="vi-file-type-js-official" scale="3" />
+            <v-icon name="vi-file-type-vue" scale="3" />
+            <img src="../assets/img/stacks/axios.svg" alt="" />
+            <v-icon name="vi-file-type-php" scale="3" />
+            <v-icon name="vi-file-type-mysql" scale="3" />
+            <img src="../assets/img/stacks/node.png" alt="" />
+            <img src="../assets/img/stacks/laravel.svg" alt="" />
+          </div>
         </div>
-      </div>
       <div class="btn-container">
         <button class="btn red">
-          <v-icon name="bi-megaphone"scale="1.5"/>
+          <v-icon name="bi-megaphone" scale="1.5" />
           Holla @ Me !
         </button>
         <RouterLink :to="{ name: 'works' }" class="btn mx-3">
@@ -79,27 +83,25 @@ export default {
   }
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #111111;
-  opacity: 0.1;
-}
-
 .stripe {
-  background: url("src/assets/img/honey-white.png") no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
+  // background: url("src/assets/img/honey-white.png") no-repeat center;
+  // background-size: cover;
+  // background-attachment: fixed;
+  background-color: #ffffff;
   width: 100%;
-  min-height: 350px;
-
-  padding: 2rem;
 
   position: relative;
 }
+
+// .overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: #111111;
+//   opacity: 0.1;
+// }
 
 .about_text {
   padding: 2rem;
@@ -129,27 +131,31 @@ export default {
   color: #cc0029;
   position: relative;
   z-index: 999;
+  margin: 1rem 0;
 }
 
-// .striped {
-//   padding: 2rem;
-//   background-color: white;
-//   width: 100%;
-//   border-radius: 2rem;
-// }
-
-img {
-  max-width: 15%;
+.stack_container {
   position: relative;
   z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 3rem;
+
+  img {
+    max-height: 60px;
+    max-width: 60px;
+  }
 }
 
-.btn-container > *{
+.btn-container > * {
   position: relative;
   z-index: 999;
 }
 .btn {
- margin-top: 2rem;
- font-size: 1.3rem;
+  margin-top: 2rem;
+  font-size: 1.3rem;
 }
 </style>
