@@ -16,9 +16,10 @@ export default {
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid px-0 py-3">
+  <section id="about" class="container-fluid px-0 py-2">
+    <div class="overlay light"></div>
     <div class="about_body">
-      <h1 class="poppins-black title mb-3">about</h1>
+      <h1 class="poppins-black title my-2">about</h1>
       <div class="row stripe mx-0">
         <div class="col">
           <div class="about_avatar">
@@ -26,7 +27,7 @@ export default {
           </div>
         </div>
         <div class="col">
-          <div class="about_bio">
+          <div class="about_bio p-2">
             <h3 class="subtitle poppins-bold">Bio</h3>
             <p class="raleway-reg">
               Hey &#128075; <br />
@@ -69,7 +70,7 @@ export default {
           </div>
         </div>
         <div class="col-12 rel px-0">
-          <div class="overlay"></div>
+          <div class="overlay dark"></div>
           <div class="tools_container">
             <h2 class="poppins-black tools_title">Working Tools</h2>
             <v-icon name="vi-file-type-html" scale="3" />
@@ -85,24 +86,24 @@ export default {
           </div>
         </div>
         <div
-          class="cTa d-flex my-3 d-flex flex-column flex-wrap align-content-center"
+          class="cTa text-center"
         >
           <div class="cTa_text my-2">
-            <span class="raleway-reg"
+            <p class="raleway-reg"
               >Wanna know more about ? Wanna grab a cocktail ?
-            </span>
+            </p>
           </div>
           <div class="cTa_btns">
-            <button class="btn poppins-bold type3">
+            <button class="poppins-bold btn">
               <v-icon name="bi-megaphone" scale="1.7" />
               Holla @ Me !
             </button>
-            <RouterLink :to="{ name: 'works' }">
-              <button class="btn type3 poppins-bold">
+            <button class="poppins-bold btn">
+              <RouterLink :to="{ name: 'works' }">
                 <v-icon name="ri-code-s-slash-fill" scale="1.7" />
                 Works !
-              </button>
-            </RouterLink>
+              </RouterLink>
+            </button>
           </div>
         </div>
       </div>
@@ -114,9 +115,7 @@ export default {
 // main and overlay
 
 #about {
-//  background: url("src/assets/img/hero-bg.jpeg") no-repeat center center;
-
-  background: url('../assets/img/abs-white-bg.jpg') no-repeat center center;
+  background: url("../assets/img/abs-white-bg.jpg") no-repeat center center;
 
   background-size: cover;
   height: 100%;
@@ -131,11 +130,11 @@ export default {
   }
 }
 
-.rel{
+.rel {
   position: relative;
 }
 
-.overlay {
+.overlay.dark {
   position: absolute;
   top: 0;
   left: 0;
@@ -143,6 +142,16 @@ export default {
   height: 100%;
   background: #111111;
   opacity: 0.65;
+}
+
+.overlay.light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0.7;
 }
 
 .about_body {
@@ -159,16 +168,11 @@ export default {
 }
 
 // bio section
-
-.stripe {
-  // background: url("src/assets/img/white-linear-bg.jpeg") no-repeat center center;
-  // background-size: cover;
-  // background-attachment: fixed;
-  width: 100%;
-}
-
-.about_bio {
-  padding: 1.3rem;
+p,
+li {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .subtitle {
@@ -187,38 +191,6 @@ img {
 .mybadge {
   color: #cc0029;
 }
-
-// .mybadge {
-//   padding: 0.65em 0.35em;
-//   font-size: 0.75em;
-//   font-weight: 700;
-//   color: #fff;
-//   border-radius: 1em;
-//   line-height: 1;
-//   display: inline-block;
-//   margin: 0.3rem 0;
-//   background: linear-gradient(
-//     45deg,
-//     hsla(348, 100%, 40%, 1) 40%,
-//     hsla(0, 0%, 89%, 1) 100%
-//   );
-
-//   background: -moz-linear-gradient(
-//     45deg,
-//     hsla(348, 100%, 40%, 1) 40%,
-//     hsla(0, 0%, 89%, 1) 100%
-//   );
-
-//   background: -webkit-linear-gradient(
-//     45deg,
-//     hsla(348, 100%, 40%, 1) 40%,
-//     hsla(0, 0%, 89%, 1) 100%
-//   );
-// }
-
-// .mybadge.warning {
-//   background-color: rgb(225, 0, 0);
-// }
 
 // tools section
 
@@ -246,60 +218,14 @@ img {
     max-width: 60px;
   }
 
-  >*{
+  > * {
     z-index: 999;
   }
 }
 
 // call to action section
-
-.cTa_btns {
-  position: relative;
-}
-
 .btn {
-  margin: 1rem;
   font-size: 1.3rem;
-
   color: black;
-}
-.btn.type3::after,
-.btn.type3::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  border: 2px solid;
-  transition: all 0.6s ease;
-  border-radius: 2px;
-}
-
-.btn.type3::after {
-  bottom: 0;
-  right: 0;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: #cc0029;
-  border-right-color: #cc0029;
-}
-
-.btn.type3::before {
-  top: 0;
-  left: 0;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-top-color: #cc0029;
-  border-left-color: #cc0029;
-}
-
-.btn.type3:hover:after,
-.btn.type3:hover:before {
-  border-bottom-color: #cc0029;
-  border-right-color: #cc0029;
-  border-top-color: #cc0029;
-  border-left-color: #cc0029;
-  width: 100%;
-  height: 100%;
 }
 </style>

@@ -31,7 +31,7 @@ export default {
       </div>
       <a href="#about">
         <div class="scroller">
-          <span class="scroller_pointer"> </span>
+          <span class="scroller_pointer"></span>
         </div>
       </a>
 
@@ -178,7 +178,6 @@ export default {
 
 .social {
   width: 30px;
-  height: 100%;
   color: #cc0029;
 
   position: absolute;
