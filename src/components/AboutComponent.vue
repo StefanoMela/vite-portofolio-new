@@ -7,73 +7,122 @@ export default {
   components: {
     "v-icon": OhVueIcon,
   },
+
+  methods: {
+    fadeIn() {},
+  },
 };
 </script>
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid p-0">
-    <h2 class="poppins-black title">about</h2>
-    <h1 class="big">about</h1>
-    <div class="row stripe">
-      <div class="col-12">
-        <div class="about_info d-flex justify-content-center">
+  <section id="about" class="container-fluid px-0 py-3">
+    <div class="about_body">
+      <h1 class="poppins-black title mb-3">about</h1>
+      <div class="row stripe mx-0">
+        <div class="col">
+          <div class="about_avatar">
+            <img src="../assets/img/avatar.svg" alt="" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="about_bio">
+            <h3 class="subtitle poppins-bold">Bio</h3>
+            <p class="raleway-reg">
+              Hey &#128075; <br />
+              I'm Stefano ! <br />
+              In this portoflio you'll find my works and my salty tears and
+              désespoir for when coding don't go as planned
+            </p>
+            <h3 class="subtitle poppins-bold">Get to know me</h3>
+            <ul class="raleway-reg p-0">
+              <li>
+                <span class="mybadge poppins-bold">Fun fact:</span> my last name
+                means &#127822;
+              </li>
+              <li>
+                <span class="mybadge poppins-bold">Fun fact<sup>2</sup>:</span>
+                been a bartender for more than 15 years and now I’m almost fully
+                sober.. <br />
+                Disclaimer: exceptions can be done for good cocktails
+              </li>
+              <li>
+                <span class="mybadge poppins-bold"> I speak:</span> Italian as a
+                mother tongue, English, French and Spanish, and I can say Hey,
+                how are you ? in 5 more languages.
+              </li>
+              <li>
+                <span class="mybadge poppins-bold"> I work on:</span> Apple
+              </li>
+              <li>
+                <span class="mybadge poppins-bold"> Hearts on:</span>
+                minimalistic, elegant design. I recon I still need a few graphic
+                design courses to attend that... but I also love those
+                cartoon-type, colored, full-of-animations-design…. oh man, life
+                is so hard.
+              </li>
+              <li>
+                <span class="mybadge poppins-bold"> Love to:</span> play
+                basketball, read, travel
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 rel px-0">
           <div class="overlay"></div>
-          <p class="about_text w-50 raleway-reg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-            deleniti architecto dolor atque doloremque autem eius expedita
-            corporis corrupti voluptate debitis totam quasi sint! Ad molestiae
-            illo eos eum necessitatibus. corporis corrupti voluptate debitis
-            totam quasi sint! Ad molestiae illo eos eum necessitatibus. corporis
-            corrupti voluptate debitis totam quasi sint! Ad molestiae illo eos
-            eum necessitatibus.
-          </p>
+          <div class="tools_container">
+            <h2 class="poppins-black tools_title">Working Tools</h2>
+            <v-icon name="vi-file-type-html" scale="3" />
+            <v-icon name="vi-file-type-css" scale="3" />
+            <img src="../assets/img/stacks/bootstrap.png" alt="" />
+            <v-icon name="vi-file-type-js-official" scale="3" />
+            <v-icon name="vi-file-type-vue" scale="3" />
+            <img src="../assets/img/stacks/axios.svg" alt="" />
+            <v-icon name="vi-file-type-php" scale="3" />
+            <v-icon name="vi-file-type-mysql" scale="3" />
+            <img src="../assets/img/stacks/node.png" alt="" />
+            <img src="../assets/img/stacks/laravel.svg" alt="" />
+          </div>
         </div>
-      </div>
-      <div class="col px-0">
-        <div class="tools_container">
-          <h2 class="poppins-black tools_title">Working Tools</h2>
-          <v-icon name="vi-file-type-html" scale="3" />
-          <v-icon name="vi-file-type-css" scale="3" />
-          <img src="../assets/img/stacks/bootstrap.png" alt="" />
-          <v-icon name="vi-file-type-js-official" scale="3" />
-          <v-icon name="vi-file-type-vue" scale="3" />
-          <img src="../assets/img/stacks/axios.svg" alt="" />
-          <v-icon name="vi-file-type-php" scale="3" />
-          <v-icon name="vi-file-type-mysql" scale="3" />
-          <img src="../assets/img/stacks/node.png" alt="" />
-          <img src="../assets/img/stacks/laravel.svg" alt="" />
+        <div
+          class="cTa d-flex my-3 d-flex flex-column flex-wrap align-content-center"
+        >
+          <div class="cTa_text my-2">
+            <span class="raleway-reg"
+              >Wanna know more about ? Wanna grab a cocktail ?
+            </span>
+          </div>
+          <div class="cTa_btns">
+            <button class="btn poppins-bold type3">
+              <v-icon name="bi-megaphone" scale="1.7" />
+              Holla @ Me !
+            </button>
+            <RouterLink :to="{ name: 'works' }">
+              <button class="btn type3 poppins-bold">
+                <v-icon name="ri-code-s-slash-fill" scale="1.7" />
+                Works !
+              </button>
+            </RouterLink>
+          </div>
         </div>
-      </div>
-      <div class="btn-container">
-        <button class="btn poppins-bold">
-          <v-icon name="bi-megaphone" scale="1.7" />
-          Holla @ Me !
-        </button>
-        <RouterLink :to="{ name: 'works' }" class="btn poppins-bold mx-3">
-          <v-icon name="ri-code-s-slash-fill" scale="1.7" />
-          Works !
-        </RouterLink>
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+// main and overlay
+
 #about {
-  background: url("src/assets/img/pxfuel.jpg") no-repeat center;
+//  background: url("src/assets/img/hero-bg.jpeg") no-repeat center center;
+
+  background: url('../assets/img/abs-white-bg.jpg') no-repeat center center;
+
   background-size: cover;
-  background-attachment: fixed;
   height: 100%;
   width: 100%;
-  min-height: 800px;
 
-  text-align: center;
   position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   h1,
   h2,
@@ -82,63 +131,108 @@ export default {
   }
 }
 
-.stripe {
-  background: url("src/assets/img/honey-white.png") no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: #ffffff;
-  width: 100%;
-
+.rel{
   position: relative;
 }
 
-// .overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: #111111;
-//   opacity: 0.1;
-// }
-
-.about_text {
-  padding: 2rem;
-  text-align: left;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  opacity: 0.65;
 }
+
+.about_body {
+  position: relative;
+}
+
+// main title
 
 .title {
   color: #cc0029;
-  font-size: 3rem;
+  font-size: 2.8rem;
   letter-spacing: 0.2rem;
-  position: absolute;
-  top: 50px;
-  z-index: 999;
+  text-align: center;
 }
 
-.big {
-  position: absolute;
-  top: 30px;
-  left: 40%;
-  font-size: 7rem;
-  color: rgba(255, 255, 255, 0.226);
-  z-index: 1;
-  font-weight: 900;
+// bio section
+
+.stripe {
+  // background: url("src/assets/img/white-linear-bg.jpeg") no-repeat center center;
+  // background-size: cover;
+  // background-attachment: fixed;
+  width: 100%;
 }
+
+.about_bio {
+  padding: 1.3rem;
+}
+
+.subtitle {
+  color: #cc0029;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+
+  margin: 0.5rem 0;
+}
+
+img {
+  max-width: 80%;
+}
+
+.mybadge {
+  color: #cc0029;
+}
+
+// .mybadge {
+//   padding: 0.65em 0.35em;
+//   font-size: 0.75em;
+//   font-weight: 700;
+//   color: #fff;
+//   border-radius: 1em;
+//   line-height: 1;
+//   display: inline-block;
+//   margin: 0.3rem 0;
+//   background: linear-gradient(
+//     45deg,
+//     hsla(348, 100%, 40%, 1) 40%,
+//     hsla(0, 0%, 89%, 1) 100%
+//   );
+
+//   background: -moz-linear-gradient(
+//     45deg,
+//     hsla(348, 100%, 40%, 1) 40%,
+//     hsla(0, 0%, 89%, 1) 100%
+//   );
+
+//   background: -webkit-linear-gradient(
+//     45deg,
+//     hsla(348, 100%, 40%, 1) 40%,
+//     hsla(0, 0%, 89%, 1) 100%
+//   );
+// }
+
+// .mybadge.warning {
+//   background-color: rgb(225, 0, 0);
+// }
+
+// tools section
 
 .tools_title {
   color: #cc0029;
-  position: relative;
-  z-index: 999;
   margin: 1rem 0;
 }
 
 .tools_container {
-  background: url("../assets/img/pxfuel.jpg") no-repeat center center;
+  background: url("../assets/img/hero-bg.jpeg") no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
 
-  height: 100px;
+  padding: 1rem;
+
   width: 100%;
 
   display: flex;
@@ -151,13 +245,61 @@ export default {
     max-height: 60px;
     max-width: 60px;
   }
+
+  >*{
+    z-index: 999;
+  }
+}
+
+// call to action section
+
+.cTa_btns {
+  position: relative;
 }
 
 .btn {
-  margin: 2rem 0;
+  margin: 1rem;
   font-size: 1.3rem;
-  
+
   color: black;
-  border: 3px solid #cc0029;
+}
+.btn.type3::after,
+.btn.type3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border: 2px solid;
+  transition: all 0.6s ease;
+  border-radius: 2px;
+}
+
+.btn.type3::after {
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: #cc0029;
+  border-right-color: #cc0029;
+}
+
+.btn.type3::before {
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #cc0029;
+  border-left-color: #cc0029;
+}
+
+.btn.type3:hover:after,
+.btn.type3:hover:before {
+  border-bottom-color: #cc0029;
+  border-right-color: #cc0029;
+  border-top-color: #cc0029;
+  border-left-color: #cc0029;
+  width: 100%;
+  height: 100%;
 }
 </style>
