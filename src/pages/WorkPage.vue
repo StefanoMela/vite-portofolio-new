@@ -1,33 +1,54 @@
 <script>
 import WorkCard from "../components/WorkCard.vue";
+import { store } from "../data/store";
 
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
   components: { WorkCard },
 };
 </script>
 
 <template>
   <!-- work page -->
-  <div id="works" class="container-fluid">
-
-    <div class="row g-4 justify-content-center">
-      <WorkCard v-for="i in 9" />
+  <section class="works container">
+    <div class="title-wrapper mb-5">
+      <h3 class="poppins-bold subtitle my-2">Portfolio</h3>
+      <h1>Check out some of my works</h1>
+      <p>A collection of my best projects until now</p>
     </div>
-  </div>
+    <div class="row g-4">
+      <WorkCard v-for="(comic, index) in store.comicsList"
+      :key="index"
+      :thumb="comic.thumb"
+      :techs="comic.techs"
+      :brief="comic.brief"
+      :title="comic.title" />
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
-#works {
-  height: 100%;
-  width: 100%;
+.title-wrapper {
+  text-align: center;
 
-  padding: 3rem;
+  h1 {
+    margin: 1rem 0;
+  }
 
-  background: url("../assets/img/stars-bg.jpeg") no-repeat center;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-attachment: fixed;
+  h3{
+    
+  }
 }
 
+.subtitle {
+  color: #cc0029;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+
+  margin: 0.5rem 0;
+}
 </style>

@@ -19,7 +19,8 @@ export default {
   <section id="about" class="container-fluid px-0 py-2">
     <div class="overlay light"></div>
     <div class="about_body">
-      <h1 class="poppins-black title my-2">about</h1>
+      <h3 class="poppins-bold subtitle my-2">about</h3>
+      <h2 class="text-center raleway-reg it">Let me introduce myself</h2>
       <div class="row stripe mx-0">
         <div class="col">
           <div class="about_avatar">
@@ -33,7 +34,7 @@ export default {
               Hey &#128075; <br />
               I'm Stefano ! <br />
               In this portoflio you'll find my works and my salty tears and
-              désespoir for when coding don't go as planned
+              désespoir for when coding don't go as planned &#128540;
             </p>
             <h3 class="subtitle poppins-bold">Get to know me</h3>
             <ul class="raleway-reg p-0">
@@ -45,12 +46,11 @@ export default {
                 <span class="mybadge poppins-bold">Fun fact<sup>2</sup>:</span>
                 been a bartender for more than 15 years and now I’m almost fully
                 sober.. <br />
-                Disclaimer: exceptions can be done for good cocktails
+                <span class="badge bg-warning">Disclaimer</span> exceptions can be done for good cocktails
               </li>
               <li>
                 <span class="mybadge poppins-bold"> I speak:</span> Italian as a
-                mother tongue, English, French and Spanish, and I can say Hey,
-                how are you ? in 5 more languages.
+                mother tongue, English, French and Spanish, and I can greet people in 5 more languages.
               </li>
               <li>
                 <span class="mybadge poppins-bold"> I work on:</span> Apple
@@ -59,12 +59,11 @@ export default {
                 <span class="mybadge poppins-bold"> Hearts on:</span>
                 minimalistic, elegant design. I recon I still need a few graphic
                 design courses to attend that... but I also love those
-                cartoon-type, colored, full-of-animations-design…. oh man, life
+                cartoon-type, colored, full-of-animations-design… oh man, life
                 is so hard.
               </li>
               <li>
-                <span class="mybadge poppins-bold"> Love to:</span> play
-                basketball, read, travel
+                <span class="mybadge poppins-bold"> Love to:</span> read, travel, play basketball
               </li>
             </ul>
           </div>
@@ -93,12 +92,14 @@ export default {
               >Wanna know more about ? Wanna grab a cocktail ?
             </p>
           </div>
-          <div class="cTa_btns">
-            <button class="poppins-bold btn">
+          <div class="cTa_btns mb-3 ">
+            <button class="poppins-bold btn mx-5">
+              <RouterLink :to="{ name: 'contacts' }">
               <v-icon name="bi-megaphone" scale="1.7" />
               Holla @ Me !
+              </RouterLink>
             </button>
-            <button class="poppins-bold btn">
+            <button class="poppins-bold btn mx-5">
               <RouterLink :to="{ name: 'works' }">
                 <v-icon name="ri-code-s-slash-fill" scale="1.7" />
                 Works !
@@ -124,7 +125,6 @@ export default {
   position: relative;
 
   h1,
-  h2,
   h3 {
     text-transform: uppercase;
   }
@@ -163,8 +163,12 @@ export default {
 .title {
   color: #cc0029;
   font-size: 2.8rem;
-  letter-spacing: 0.2rem;
   text-align: center;
+}
+
+.it{
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 // bio section
@@ -172,13 +176,11 @@ p,
 li {
   font-size: 1.2rem;
   letter-spacing: 2px;
-  font-weight: 600;
 }
 
 .subtitle {
   color: #cc0029;
   font-size: 1.4rem;
-  letter-spacing: 0.2rem;
   text-align: center;
 
   margin: 0.5rem 0;
@@ -189,7 +191,7 @@ img {
 }
 
 .mybadge {
-  color: #cc0029;
+  color: #cc0029; 
 }
 
 // tools section
@@ -228,4 +230,9 @@ img {
   font-size: 1.3rem;
   color: black;
 }
+
+.btn:hover{
+  scale: 1.2;
+}
+
 </style>

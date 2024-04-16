@@ -7,7 +7,6 @@ import AboutPage from "../pages/AboutPage.vue";
 
 const router = createRouter({
     history: createWebHistory(),
-    scrollBehavior: false,
     routes: [
         {
             path: '/',
@@ -29,7 +28,10 @@ const router = createRouter({
             name: 'works',
             component: WorkPage,
         },
-    ]
+    ],
+    scrollBehavior(){
+        return {top: 0}
+    }
 });
 
 export { router };
