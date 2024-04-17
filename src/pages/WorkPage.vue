@@ -14,13 +14,13 @@ export default {
 
 <template>
   <!-- work page -->
-  <section class="works container">
-    <div class="title-wrapper mb-5">
-      <h3 class="poppins-bold subtitle my-2">Portfolio</h3>
+  <section class="works container py-5">
+    <div class="title-wrapper">
+      <h3 class="poppins-bold subtitle">Portfolio</h3>
       <h1>Check out some of my works</h1>
       <p>A collection of my best projects until now</p>
     </div>
-    <div class="row g-4">
+    <div class="row mt-3 g-4">
       <WorkCard v-for="(comic, index) in store.comicsList"
       :key="index"
       :thumb="comic.thumb"
@@ -38,17 +38,11 @@ export default {
   h1 {
     margin: 1rem 0;
   }
-
-  h3{
-    
-  }
 }
 
 .subtitle {
   color: #cc0029;
   font-size: 1.4rem;
   text-transform: uppercase;
-
-  margin: 0.5rem 0;
 }
 </style>
