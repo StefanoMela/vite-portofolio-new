@@ -1,8 +1,6 @@
 /* ! Reset */
 body,
 html {
-  font-family: "Roboto Serif", serif;
-  font-size: 16px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -16,9 +14,6 @@ html {
 ol,
 ul {
   list-style-type: none;
-}
-img {
-  height: auto;
 }
 a {
   text-decoration: none;
@@ -56,4 +51,40 @@ p{
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.raleway-reg {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.subtitle {
+  color: #cc0029;
+  font-size: 1.4rem;
+
+  margin: 0.5rem 0;
+}
+.it{
+  font-weight: 600;
+  font-size: 2rem;
 }

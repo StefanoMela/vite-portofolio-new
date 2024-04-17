@@ -14,10 +14,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 // import Icons
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { FaRegularHandPointDown } from "oh-vue-icons/icons";
-import { HiArrowNarrowRight } from "oh-vue-icons/icons";
-addIcons(FaRegularHandPointDown, HiArrowNarrowRight);
-
+import { BiMegaphone } from "oh-vue-icons/icons";
+import { RiCodeSSlashFill } from "oh-vue-icons/icons";
+import { FaInstagram } from "oh-vue-icons/icons";
+import { FaGithub } from "oh-vue-icons/icons";
+import { FaLinkedin } from "oh-vue-icons/icons";
+import { ViFileTypeHtml } from "oh-vue-icons/icons";
+import { ViFileTypeCss } from "oh-vue-icons/icons";
+import { ViFileTypeJsOfficial } from "oh-vue-icons/icons";
+import { ViFileTypeVue } from "oh-vue-icons/icons";
+import { ViFileTypePhp } from "oh-vue-icons/icons";
+import { ViFileTypeMysql } from "oh-vue-icons/icons";
+addIcons(BiMegaphone, RiCodeSSlashFill, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql)
 
 // import style
 import './assets/css/style.scss'

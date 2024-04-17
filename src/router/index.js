@@ -28,7 +28,10 @@ const router = createRouter({
             name: 'works',
             component: WorkPage,
         },
-    ]
+    ],
+    scrollBehavior(){
+        return {top: 0}
+    }
 });
 
 export { router };

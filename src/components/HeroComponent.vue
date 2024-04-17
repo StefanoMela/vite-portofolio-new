@@ -1,6 +1,4 @@
 <script>
-import gsap from "gsap";
-
 import { OhVueIcon } from "oh-vue-icons";
 
 export default {
@@ -12,83 +10,182 @@ export default {
 </script>
 
 <template>
-  <!-- Main Section w/ animation -->
-  <section class="wrapper">
-    <div class="link-container p-3">
-      <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
-      <RouterLink :to="{ name: 'works' }">Works</RouterLink>
+  <!-- Hero Section -->
+  <section class="hero container-fluid">
+    <div class="link-container poppins-bold">
+      <RouterLink :to="{ name: 'contacts' }"
+        >< Contacts / >
+      </RouterLink>
+      <RouterLink :to="{ name: 'works' }">
+        < Works / >
+      </RouterLink>
     </div>
-    <div class="container-fluid animation-box px-5 py-3">
-      <div class="hero">
-        <div class="animated-el img-container" key="k1">
-          <img src="../assets/img/avatar.svg" alt="pro-pic" class="profile-pic"
+    <div class="overlay"></div>
+    <div class="hero_content">
+      <div class="row">
+        <div class="col">
+          <h3 class="poppins-black">Hello, World</h3>
+          <h1 class="poppins-extrabold">I'm Stefano Mela</h1>
+          <span class="job">Jr Full Stack Developer</span>
         </div>
-        <div class="txt-container" key="k2">
-          <h1 class="animated-el">Hello ! <br /></h1>
-          <h2 class="animated-el">I'm Stefano</h2>
-          <h3 class="animated-el">A Jr Full Stack Web Developer</h3>
+      </div>
+      <a href="#about">
+        <div class="scroller">
+          <span class="scroller_pointer"></span>
         </div>
-        <!-- Scroll Button -->
-        <div class="animated-el scroll-btn" cursor="pointer" key="k3">
-          <RouterLink :to="{ name: 'about' }">
-            <span>
-              <v-icon
-                name="fa-regular-hand-point-down"
-                scale="2.5"
-                animation="float"
-                speed="fast"
-              />
-            </span>
-          </RouterLink>
-        </div>
+      </a>
+
+      <div class="social">
+        <a
+          href="https://www.instagram.com/melass"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <v-icon name="fa-instagram" />
+        </a>
+        <a
+          href="https://www.github.com/StefanoMela"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <v-icon name="fa-github" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/smela/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <v-icon name="fa-linkedin" />
+        </a>
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-.wrapper {
+.hero {
+  background: #151515 url("src/assets/img/hero-bg.jpeg") no-repeat center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
   height: 100vh;
-  background-color: #133c55;
-  color: rgb(233, 200, 13);
+  position: relative;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-transform: uppercase;
+
+  h3 {
+    color: #cc0029;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+  }
+
+  h1 {
+    font-size: 3.3rem;
+    letter-spacing: 0.2rem;
+  }
+
+  span {
+    font-size: 1rem;
+  }
 }
 
 .link-container {
   position: absolute;
+  bottom: 0;
   right: 0;
-  a {
-    margin: 0 1rem;
+  margin-bottom: 3rem;
+  margin-right: 1.5rem;
+  
+  color: #cc0029;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  z-index: 1;
+
+  :nth-child(2){
+    margin-left: 2.5rem;
   }
-}
-.animation-box {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-}
-.img-container {
-  width: 200px;
-  height: 200px;
-}
-.profile-pic {
-  max-width: 100%;
-  border-radius: 50%;
 }
 
-.txt-container {
-  h3 {
-    font-weight: bolder;
+.job::before,
+.job::after {
+  display: inline-block;
+  content: "|";
+  width: 1px;
+  color: #cc0029;
+  margin-inline: 8px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  opacity: 0.85;
+}
+
+.hero_content {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroller {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+  transform: translateY(400%);
+
+  border: 3px solid white;
+
+  padding: 5px;
+  height: 60px;
+  width: 35px;
+  border-radius: 20px;
+
+  .scroller_pointer {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: white;
+
+    animation-name: scroll;
+    animation-duration: 1.3s;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(35px);
+    }
   }
 }
-.scroll-btn {
+
+.social {
+  width: 30px;
+  color: #cc0029;
+
   position: absolute;
-  transform: translateY(150px);
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  margin-right: 1rem;
 }
 </style>

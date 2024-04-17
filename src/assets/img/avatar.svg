@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 4000 4000" style="enable-background:new 0 0 4000 4000;" xml:space="preserve">
 <g>
-	<rect style="fill:#FFFFFF;" width="4000" height="4000"/>
+	<rect style="fill:transparent;" width="4000" height="4000"/>
 	<g>
 		<g>
 			<circle style="fill:#3D3144;" cx="2000" cy="1733.647" r="1153.647"/>
