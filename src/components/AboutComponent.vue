@@ -9,7 +9,25 @@ export default {
   },
 
   methods: {
-    fadeIn() {},
+    fadeInTL() {
+      let tl = gsap.timeline({
+        delay: 1.3,
+        defaults: { autoAlpha: 0, ease: "none" },
+      });
+      tl.from(".about_avatar", { autoAlpha: 0, duration: 1 });
+      tl.from(".bio_top", {
+        scale: 0,
+      }, '>-1');
+      tl.from(".bio_btm *", {
+        x: 550,
+        stagger: .3,
+      });
+      tl.from(".tools_container *", { stagger: { amount: 2.5, from: 'center'} }, ">-3");
+      tl.from(".cTa", {});
+    },
+  },
+  mounted() {
+    this.fadeInTL();
   },
 };
 </script>
@@ -19,74 +37,86 @@ export default {
   <section id="about" class="container-fluid px-0 py-2">
     <div class="overlay light"></div>
     <div class="about_body">
+      <!-- title -->
       <h3 class="poppins-bold subtitle text-center my-2">about</h3>
       <h1 class="text-center raleway-reg it">Let me introduce myself</h1>
       <div class="row stripe mx-0">
         <div class="col">
           <div class="about_avatar">
-            <img src="../assets/img/avatar.svg" alt="" />
+            <!-- avatar -->
+            <img src="../assets/img/avatar.svg" class="avatar" alt="" />
           </div>
         </div>
         <div class="col">
+          <!-- bio -->
           <div class="about_bio p-2">
-            <h3 class="subtitle poppins-bold">Bio</h3>
-            <p class="raleway-reg bio_t">
-              Hey &#128075; <br />
-              I'm Stefano ! <br />
-              In this portoflio you'll find my works and my salty tears and
-              désespoir for when coding don't go as planned &#128540;
-            </p>
-            <h3 class="subtitle poppins-bold">Get to know me</h3>
-            <ul class="raleway-reg p-0 bio_t">
-              <li>
-                <span class="mybadge poppins-bold">Fun fact:</span> my last name
-                means &#127822;
-              </li>
-              <li>
-                <span class="mybadge poppins-bold">Fun fact<sup>2</sup>:</span>
-                been a bartender for more than 15 years and now I’m almost fully
-                sober.. <br />
-                <span class="badge bg-warning">Disclaimer</span> exceptions can
-                be done for good cocktails
-              </li>
-              <li>
-                <span class="mybadge poppins-bold"> I speak:</span> Italian as a
-                mother tongue, English, French and Spanish, and I can greet
-                people in 5 more languages.
-              </li>
-              <li>
-                <span class="mybadge poppins-bold"> I work on:</span> Apple
-              </li>
-              <li>
-                <span class="mybadge poppins-bold"> Hearts on:</span>
-                minimalistic, elegant design. I recon I still need a few graphic
-                design courses to attend that... but I also love those
-                cartoon-type, colored, full-of-animations-design… oh man, life
-                is so hard.
-              </li>
-              <li>
-                <span class="mybadge poppins-bold"> Love to:</span> read,
-                travel, play basketball
-              </li>
-            </ul>
+            <div class="bio_top">
+              <h3 class="subtitle poppins-bold">Bio</h3>
+              <p class="raleway-reg bio_t">
+                Hey &#128075; <br />
+                I'm Stefano ! <br />
+                In this portoflio you'll find my works and my salty tears and
+                désespoir for when coding don't go as planned &#128540;
+              </p>
+            </div>
+            <div class="bio_btm">
+              <h3 class="subtitle poppins-bold">Get to know me</h3>
+              <ul class="raleway-reg p-0 bio_t">
+                <li>
+                  <span class="mybadge poppins-bold">Fun fact:</span> my last
+                  name means &#127822;
+                </li>
+                <li>
+                  <span class="mybadge poppins-bold"
+                    >Fun fact<sup>2</sup>:</span
+                  >
+                  been a bartender for more than 15 years and now I’m almost
+                  fully sober.. <br />
+                  <span class="badge bg-warning"
+                    >Disclaimer: exceptions can be done for good cocktails
+                  </span>
+                </li>
+                <li>
+                  <span class="mybadge poppins-bold"> I speak:</span> Italian as
+                  a mother tongue, English, French and Spanish, and I can greet
+                  people in 5 more languages.
+                </li>
+                <li>
+                  <span class="mybadge poppins-bold"> I work on:</span> Apple
+                </li>
+                <li>
+                  <span class="mybadge poppins-bold"> Hearts on:</span>
+                  minimalistic, elegant design. I recon I still need a few
+                  graphic design courses to attend that... but I also love those
+                  cartoon-type, colored, full-of-animations-design… oh man, life
+                  is so hard.
+                </li>
+                <li>
+                  <span class="mybadge poppins-bold"> Love to:</span> read,
+                  travel, play basketball
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+        <!-- tools -->
         <div class="col-12 rel px-0">
           <div class="overlay dark"></div>
           <div class="tools_container">
             <h2 class="poppins-bold tools_title">Working Tools</h2>
-            <v-icon name="vi-file-type-html" scale="3" />
-            <v-icon name="vi-file-type-css" scale="3" />
-            <img src="../assets/img/stacks/bootstrap.png" alt="" />
-            <v-icon name="vi-file-type-js-official" scale="3" />
-            <v-icon name="vi-file-type-vue" scale="3" />
-            <img src="../assets/img/stacks/axios.svg" alt="" />
-            <v-icon name="vi-file-type-php" scale="3" />
-            <v-icon name="vi-file-type-mysql" scale="3" />
-            <img src="../assets/img/stacks/node.png" alt="" />
-            <img src="../assets/img/stacks/laravel.svg" alt="" />
+            <v-icon class="tool" name="vi-file-type-html" scale="3" />
+            <v-icon class="tool" name="vi-file-type-css" scale="3" />
+            <img class="tool" src="../assets/img/stacks/bootstrap.png" alt="" />
+            <v-icon class="tool" name="vi-file-type-js-official" scale="3" />
+            <v-icon class="tool" name="vi-file-type-vue" scale="3" />
+            <img class="tool" src="../assets/img/stacks/axios.svg" alt="" />
+            <v-icon class="tool" name="vi-file-type-php" scale="3" />
+            <v-icon class="tool" name="vi-file-type-mysql" scale="3" />
+            <img class="tool" src="../assets/img/stacks/node.png" alt="" />
+            <img class="tool" src="../assets/img/stacks/laravel.svg" alt="" />
           </div>
         </div>
+        <!-- call to action -->
         <div class="cTa text-center">
           <div class="cTa_text my-2">
             <p class="raleway-reg">
@@ -161,9 +191,16 @@ export default {
 
 // bio section
 
-.about_bio{
+.about_avatar {
+  text-align: center;
+  .avatar {
+    width: 400px;
+  }
+}
+
+.about_bio {
   font-size: 1.2rem;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 .mybadge {

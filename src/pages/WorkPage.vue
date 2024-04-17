@@ -20,13 +20,16 @@ export default {
       <h1>Check out some of my works</h1>
       <p>A collection of my best projects until now</p>
     </div>
+    <!-- cards -->
     <div class="row mt-3 g-4">
-      <WorkCard v-for="(comic, index) in store.comicsList"
-      :key="index"
-      :thumb="comic.thumb"
-      :techs="comic.techs"
-      :brief="comic.brief"
-      :title="comic.title" />
+      <WorkCard
+        v-for="(comic, index) in store.comicsList"
+        :key="index"
+        :thumb="comic.thumb"
+        :techs="comic.techs"
+        :brief="comic.brief"
+        :title="comic.title"
+      />
     </div>
   </section>
 </template>

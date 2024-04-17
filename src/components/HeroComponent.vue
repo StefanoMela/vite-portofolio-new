@@ -68,8 +68,7 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  height: 100%;
-  min-height: 800px;
+  height: 100vh;
   position: relative;
   text-align: center;
 
