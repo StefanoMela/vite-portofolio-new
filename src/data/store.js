@@ -2,7 +2,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
 
-    comicsList: [
+    projectList: [
         {
             thumb: "/work-bg/discord-bg.png",
             title: 'My first time',
@@ -79,7 +79,7 @@ export const store = reactive({
             thumb: '/work-bg/boolfolio-bg.png',
             title: 'Boolfolio',
             techs: "Laravel / Vue",
-            brief: "Second full stack project coded. A full stack portfolio, where the FE user can browse through projects and see the details or get in touch via the contact form. The BE part is just a handmade API in Laravel with a simple backoffice interface to help the owner add his works",
+            brief: "Second full stack project coded. A full stack portfolio, where the FE user can browse through projects and see the details or get in touch via the contact form. The BE part is just a handmade API in Laravel with a simple backoffice interface to help the owner add, modify, delete and restore his works",
         },
         {
             thumb: '/work-bg/boolbnb-bg.png',

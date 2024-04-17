@@ -1,10 +1,7 @@
 <script>
 export default {
   props: {
-    thumb: String,
-    techs: String,
-    brief: String,
-    title: String,
+    project: Object
   },
 };
 </script>
@@ -13,12 +10,12 @@ export default {
   <div class="col-3">
     <div class="card work-card rounded h-100">
         <div class="card-header p-4">
-          <img :src="thumb" class="card-img-top mb-3" />
+          <img :src="project.thumb" class="card-img-top mb-3" />
         </div>
         <div class="card-body">
-          <h2 class="card-title poppins-bold subtitle">{{ title }}</h2>
-          <h5 class="raleway-reg tcs">{{ techs }}</h5>
-          <p class="card-text raleway-reg">{{ brief }}</p>
+          <h2 class="card-title poppins-bold subtitle">{{ project.title }}</h2>
+          <h5 class="raleway-reg tcs">{{ project.techs }}</h5>
+          <p class="card-text raleway-reg">{{ project.brief }}</p>
         </div>
     </div>
   </div>

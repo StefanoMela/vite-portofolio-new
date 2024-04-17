@@ -11,18 +11,32 @@ export default {
   methods: {
     fadeInTL() {
       let tl = gsap.timeline({
-        delay: 1.3,
-        defaults: { autoAlpha: 0, ease: "none" },
+        defaults: { autoAlpha: 0, ease: "power1.out" },
+        scrollTrigger: {
+          trigger: "#about",
+          pin: true,
+          start: "top top",
+          end: "bottom bottom",
+        },
       });
-      tl.from(".about_avatar", { autoAlpha: 0, duration: 1 });
-      tl.from(".bio_top", {
-        scale: 0,
-      }, '>-1');
+      tl.from(".line", { width: 0, duration: 2, stagger: { from: "center" } });
+      tl.from(".about_avatar", { duration: 1 });
+      tl.from(
+        ".bio_top",
+        {
+          scale: 0,
+        },
+        ">-1"
+      );
       tl.from(".bio_btm *", {
         x: 550,
-        stagger: .3,
+        stagger: 0.1,
       });
-      tl.from(".tools_container *", { stagger: { amount: 2.5, from: 'center'} }, ">-3");
+      tl.from(
+        ".tools_container *",
+        { stagger: { amount: 2, from: "center" } },
+        ">-3"
+      );
       tl.from(".cTa", {});
     },
   },
@@ -38,13 +52,38 @@ export default {
     <div class="overlay light"></div>
     <div class="about_body">
       <!-- title -->
-      <h3 class="poppins-bold subtitle text-center my-2">about</h3>
-      <h1 class="text-center raleway-reg it">Let me introduce myself</h1>
-      <div class="row stripe mx-0">
+      <div class="title-wrapper container">
+        <h3 class="poppins-bold subtitle my-2">about</h3>
+        <h1 class="raleway-reg">Let me introduce myself</h1>
+        <span class="line"></span>
+      </div>
+      <div class="row mx-0">
         <div class="col">
           <div class="about_avatar">
             <!-- avatar -->
             <img src="../assets/img/avatar.svg" class="avatar" alt="" />
+            <!-- call to action -->
+            <div class="cTa text-center">
+              <div class="cTa_text my-2">
+                <p class="raleway-reg">
+                  Wanna know more about ? Wanna grab a cocktail ?
+                </p>
+              </div>
+              <div class="cTa_btns mb-3">
+                <button class="poppins-bold btn mx-5">
+                  <a href="mailto:stefano.mela25@gmail.com">
+                    <v-icon name="bi-megaphone" scale="1.7" />
+                    Holla @ Me !
+                  </a>
+                </button>
+                <button class="poppins-bold btn mx-5">
+                  <RouterLink :to="{ name: 'works' }">
+                    <v-icon name="ri-code-s-slash-fill" scale="1.7" />
+                    Works !
+                  </RouterLink>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -116,28 +155,6 @@ export default {
             <img class="tool" src="../assets/img/stacks/laravel.svg" alt="" />
           </div>
         </div>
-        <!-- call to action -->
-        <div class="cTa text-center">
-          <div class="cTa_text my-2">
-            <p class="raleway-reg">
-              Wanna know more about ? Wanna grab a cocktail ?
-            </p>
-          </div>
-          <div class="cTa_btns mb-3">
-            <button class="poppins-bold btn mx-5">
-              <a href="mailto:stefano.mela25@gmail.com">
-                <v-icon name="bi-megaphone" scale="1.7" />
-                Holla @ Me !
-              </a>
-            </button>
-            <button class="poppins-bold btn mx-5">
-              <RouterLink :to="{ name: 'works' }">
-                <v-icon name="ri-code-s-slash-fill" scale="1.7" />
-                Works !
-              </RouterLink>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -150,8 +167,7 @@ export default {
   background: url("../assets/img/abs-white-bg.jpg") no-repeat center center;
 
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
 
   position: relative;
 
@@ -159,10 +175,6 @@ export default {
   h3 {
     text-transform: uppercase;
   }
-}
-
-.rel {
-  position: relative;
 }
 
 .overlay.dark {
@@ -185,11 +197,28 @@ export default {
   opacity: 0.7;
 }
 
+// body and titles
+
 .about_body {
   position: relative;
 }
 
-// bio section
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  display: inline-block;
+  height: 5px;
+  width: 50%;
+  background-color: #cc0029;
+  border-radius: 10px;
+}
+
+// avatar section
 
 .about_avatar {
   text-align: center;
@@ -197,6 +226,23 @@ export default {
     width: 400px;
   }
 }
+
+// call to action section
+
+.cTa_text {
+  font-size: 1.2rem;
+}
+
+.btn {
+  font-size: 1.3rem;
+  color: black;
+}
+
+.btn:hover {
+  scale: 1.2;
+}
+
+// bio
 
 .about_bio {
   font-size: 1.2rem;
@@ -208,6 +254,10 @@ export default {
 }
 
 // tools section
+
+.rel {
+  position: relative;
+}
 
 .tools_title {
   color: #cc0029;
@@ -236,20 +286,5 @@ export default {
   > * {
     z-index: 999;
   }
-}
-
-// call to action section
-
-.cTa_text {
-  font-size: 1.2rem;
-}
-
-.btn {
-  font-size: 1.3rem;
-  color: black;
-}
-
-.btn:hover {
-  scale: 1.2;
 }
 </style>

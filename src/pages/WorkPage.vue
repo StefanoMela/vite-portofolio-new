@@ -23,12 +23,9 @@ export default {
     <!-- cards -->
     <div class="row mt-3 g-4">
       <WorkCard
-        v-for="(comic, index) in store.comicsList"
+        v-for="(project, index) in store.projectList"
         :key="index"
-        :thumb="comic.thumb"
-        :techs="comic.techs"
-        :brief="comic.brief"
-        :title="comic.title"
+        :project=project
       />
     </div>
   </section>
