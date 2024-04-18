@@ -13,9 +13,6 @@ export default {
   <!-- Hero Section -->
   <section class="hero container-fluid">
     <div class="link-container poppins-bold">
-      <RouterLink :to="{ name: 'contacts' }"
-        >< Contacts / >
-      </RouterLink>
       <RouterLink :to="{ name: 'works' }">
         < Works / >
       </RouterLink>

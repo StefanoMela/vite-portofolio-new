@@ -14,7 +14,8 @@ export default {
         </div>
         <div class="card-body">
           <h2 class="card-title poppins-bold subtitle">{{ project.title }}</h2>
-          <h5 class="raleway-reg tcs">{{ project.techs }}</h5>
+          <h5 class="raleway-reg tcs"
+          v-for="(tech, index) in project.techs" :key="index">{{ tech }}</h5>
           <p class="card-text raleway-reg">{{ project.brief }}</p>
         </div>
     </div>

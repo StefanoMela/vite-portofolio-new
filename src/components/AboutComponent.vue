@@ -14,9 +14,7 @@ export default {
         defaults: { autoAlpha: 0, ease: "power1.out" },
         scrollTrigger: {
           trigger: "#about",
-          pin: true,
-          start: "top top",
-          end: "bottom bottom",
+          start: "top center",
         },
       });
       tl.from(".line", { width: 0, duration: 2, stagger: { from: "center" } });
@@ -49,7 +47,6 @@ export default {
 <template>
   <!-- About Section -->
   <section id="about" class="container-fluid px-0 py-2">
-    <div class="overlay light"></div>
     <div class="about_body">
       <!-- title -->
       <div class="title-wrapper container">
@@ -70,12 +67,10 @@ export default {
                 </p>
               </div>
               <div class="cTa_btns mb-3">
-                <button class="poppins-bold btn mx-5">
-                  <a href="mailto:stefano.mela25@gmail.com">
-                    <v-icon name="bi-megaphone" scale="1.7" />
-                    Holla @ Me !
-                  </a>
-                </button>
+                <span class="poppins-bold btn mx-5">
+                  <v-icon name="co-minutemailer" scale="1.7" />
+                  stefano.mela25@gmail.com
+                </span>
                 <button class="poppins-bold btn mx-5">
                   <RouterLink :to="{ name: 'works' }">
                     <v-icon name="ri-code-s-slash-fill" scale="1.7" />
@@ -163,18 +158,9 @@ export default {
 <style lang="scss" scoped>
 // main and overlay
 
-#about {
-  background: url("../assets/img/abs-white-bg.jpg") no-repeat center center;
-
-  background-size: cover;
-  height: 100vh;
-
-  position: relative;
-
-  h2,
-  h3 {
-    text-transform: uppercase;
-  }
+h2,
+h3 {
+  text-transform: uppercase;
 }
 
 .overlay.dark {
@@ -185,16 +171,6 @@ export default {
   height: 100%;
   background: #111111;
   opacity: 0.65;
-}
-
-.overlay.light {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  opacity: 0.7;
 }
 
 // body and titles
@@ -247,10 +223,6 @@ export default {
 .about_bio {
   font-size: 1.2rem;
   letter-spacing: 0.5px;
-}
-
-.mybadge {
-  color: #cc0029;
 }
 
 // tools section

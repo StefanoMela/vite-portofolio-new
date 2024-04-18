@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { BiMegaphone } from "oh-vue-icons/icons";
 import { RiCodeSSlashFill } from "oh-vue-icons/icons";
+import { CoMinutemailer } from "oh-vue-icons/icons";
 import { FaInstagram } from "oh-vue-icons/icons";
 import { FaGithub } from "oh-vue-icons/icons";
 import { FaLinkedin } from "oh-vue-icons/icons";
@@ -25,7 +26,7 @@ import { ViFileTypeJsOfficial } from "oh-vue-icons/icons";
 import { ViFileTypeVue } from "oh-vue-icons/icons";
 import { ViFileTypePhp } from "oh-vue-icons/icons";
 import { ViFileTypeMysql } from "oh-vue-icons/icons";
-addIcons(BiMegaphone, RiCodeSSlashFill, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql)
+addIcons(BiMegaphone, RiCodeSSlashFill, CoMinutemailer, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql)
 
 // import style
 import './assets/css/style.scss'
