@@ -105,7 +105,9 @@ export default {
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
 
-  position: absolute;
+  text-transform: uppercase;
+
+  position: fixed;
   right: 0;
   margin: 1.5rem 0;
   rotate: -90deg;
