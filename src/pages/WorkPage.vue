@@ -11,6 +11,8 @@ export default {
       selectedFilter: "",
       filteredProjects: [],
       filters: false,
+      sortBy: '',
+      reversedWorks: [],
     };
   },
   components: { WorkCard, "v-icon": OhVueIcon },
@@ -22,6 +24,15 @@ export default {
         return project.techs.includes(technology);
       });
     },
+    sortByRecent(){
+      if(this.sortBy === 'latest'){
+        this.filters = true;
+        this.filteredProjects = this.store.projectList.toReversed();
+        return this.filteredProjects;
+      } else {
+        return this.filters = false;
+      }
+    }
   },
 };
 </script>
@@ -34,13 +45,14 @@ export default {
     </div>
     <div class="title-wrapper mb-5">
       <h3 class="poppins-bold subtitle">Portfolio</h3>
-      <h1>Check out some of my works</h1>
-      <h5>A collection of my projects</h5>
+      <h1 class="raleway-reg">Check out some of my works</h1>
+      <h5 class="raleway-reg">A collection of my projects</h5>
     </div>
-    <p class="text-center" for="filterSelect">Filter by technlogy</p>
+
     <div
-      class="filter-wrapper d-flex justify-content-center align-items-center mt-3"
+      class="filter-wrapper mt-3"
     >
+    <p class="raleway-reg" for="filterSelect">Filters</p>
       <v-icon
         @click="filterBy('HTML')"
         class="tool"
@@ -71,6 +83,11 @@ export default {
         src="../assets/img/stacks/laravel.svg"
         alt=""
       />
+      <label for="sortBy" class="form-label raleway-reg">Sort by</label>
+      <select class="form-select form-select-sm sort-by raleway-reg" name="sortBy" id="sortBy" v-model="sortBy" @change="sortByRecent()">
+        <option value="latest">Recent</option>
+        <option value="older">Older</option>
+      </select>
     </div>
     <!-- cards -->
     <div class="row mt-3 g-4" v-if="!filters">
@@ -78,6 +95,7 @@ export default {
         v-for="(project, index) in store.projectList"
         :key="index"
         :project="project"
+        :isDetail="false"
       />
     </div>
     <div class="row mt-3 g-4" v-if="filters">
@@ -114,26 +132,28 @@ export default {
   
 }
 
-.subtitle {
-  color: #cc0029;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-}
-
-
 .filter-wrapper {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   img {
     width: 57.59px;
   }
 
   gap: 2rem;
 
-  * {
+  .tool {
     cursor: pointer;
   }
 
-  *:hover {
+  .tool:hover {
     scale: 1.5;
+  }
+
+  .sort-by{
+    width: 10%;
   }
 }
 </style>

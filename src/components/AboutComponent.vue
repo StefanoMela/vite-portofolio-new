@@ -158,6 +158,10 @@ export default {
 <style lang="scss" scoped>
 // main and overlay
 
+#about{
+  height: 100vh;
+}
+
 h2,
 h3 {
   text-transform: uppercase;
