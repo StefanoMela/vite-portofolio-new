@@ -2,12 +2,18 @@
 import WorkCard from "../components/WorkCard.vue";
 import { store } from "../data/store.js";
 
+import { Flip } from "gsap/Flip";
+
 export default {
   data() {
     return {
       store,
       detailList: [],
       project: {},
+      modal: {
+        isOpen: false,
+        image: "",
+      },
     };
   },
   components: { WorkCard },
@@ -21,7 +27,6 @@ export default {
       });
     },
   },
-
   mounted() {
     this.fetchProjects();
   },
@@ -34,9 +39,24 @@ export default {
       <h2 class="card-title poppins-bold subtitle text-center my-3">
         {{ project.title }}
       </h2>
-      <div class="col">
+      <div class="col gallery">
         <div class="img-container">
-          <img :src="project.thumb" class="card-img-top" />
+          <img :src="project.thumb" class="card-img-top border" />
+        </div>
+        <div class="gallery_thumbs" v-if="project.gallery">
+          <div
+            class="gallery_item"
+            v-for="(galleryPic, index) in project.gallery"
+            :key="index"
+          >
+            <img :src="galleryPic" class="gallery_img" alt="" />
+          </div>
+        </div>
+        <div class="modal" v-if="modal.isOpen" @click="closeModal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <img :src="modal.image" class="modal-img" alt="" />
+          </div>
         </div>
       </div>
       <div class="col">
@@ -82,7 +102,20 @@ export default {
   padding: 1rem;
 }
 
-.link-container{
+.link-container {
   color: #cc0029;
+}
+
+.gallery_thumbs {
+  margin-top: 1rem;
+  max-width: 350px;
+
+  display: flex;
+
+  .gallery_img {
+    max-width: 100%;
+
+    margin: 0 1rem;
+  }
 }
 </style>

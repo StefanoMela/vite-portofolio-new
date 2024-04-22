@@ -35,7 +35,7 @@ export default {
         { stagger: { amount: 2, from: "center" } },
         ">-3"
       );
-      tl.from(".cTa", {});
+      tl.from(".call-to-action", {});
     },
   },
   mounted() {
@@ -46,74 +46,54 @@ export default {
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid px-0 py-2">
+  <section id="about" class="container-fluid">
     <div class="about_body">
+      <div class="link-container poppins-bold">
+        <RouterLink :to="{ name: 'works' }"> < Works / > </RouterLink>
+      </div>
       <!-- title -->
       <div class="title-wrapper container">
-        <h3 class="poppins-bold subtitle my-2">about</h3>
+        <h3 class="poppins-bold subtitle">about</h3>
         <h1 class="raleway-reg">Let me introduce myself</h1>
         <span class="line"></span>
       </div>
-      <div class="row mx-0">
+      <div class="row">
         <div class="col">
           <div class="about_avatar">
             <!-- avatar -->
-            <img src="../assets/img/avatar.svg" class="avatar" alt="" />
+            <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
             <!-- call to action -->
-            <div class="cTa text-center">
-              <div class="cTa_text my-2">
-                <p class="raleway-reg">
-                  Wanna know more about ? Wanna grab a cocktail ?
-                </p>
-              </div>
-              <div class="cTa_btns mb-3">
-                <span class="poppins-bold btn mx-5">
-                  <v-icon name="co-minutemailer" scale="1.7" />
-                  stefano.mela25@gmail.com
-                </span>
-                <button class="poppins-bold btn mx-5">
-                  <RouterLink :to="{ name: 'works' }">
-                    <v-icon name="ri-code-s-slash-fill" scale="1.7" />
-                    Works !
-                  </RouterLink>
-                </button>
-              </div>
+            <div class="call-to-action">
+              <span class="poppins-bold">
+                <v-icon name="co-minutemailer" scale="1.7" />
+                stefano.mela25@gmail.com
+              </span>
             </div>
           </div>
         </div>
         <div class="col">
           <!-- bio -->
-          <div class="about_bio p-2">
+          <div class="about_bio">
             <div class="bio_top">
               <h3 class="subtitle poppins-bold">Bio</h3>
-              <p class="raleway-reg bio_t">
-                Hey &#128075; <br />
-                I'm Stefano ! <br />
-                In this portoflio you'll find my works and my salty tears and
-                désespoir for when coding don't go as planned &#128540;
+              <p class="raleway-reg">
+                After few years of work in the hospitality industry I've
+                decided to focus on my intrest on the digital world and become a
+                developer. <br />
+                I come with a handful luggage of problem solving and
+                interpersonal skills, such as communication, empathy, and
+                understanding customer needs. <br />
+                Fluent in four languages, I see them as a bridge, connecting
+                people and ideas across cultures. <br />
+                Hobbies are: reading, playing basketball, trekking, travelling.
               </p>
             </div>
             <div class="bio_btm">
               <h3 class="subtitle poppins-bold">Get to know me</h3>
-              <ul class="raleway-reg p-0 bio_t">
+              <ul class="raleway-reg">
                 <li>
                   <span class="mybadge poppins-bold">Fun fact:</span> my last
                   name means &#127822;
-                </li>
-                <li>
-                  <span class="mybadge poppins-bold"
-                    >Fun fact<sup>2</sup>:</span
-                  >
-                  been a bartender for more than 15 years and now I’m almost
-                  fully sober.. <br />
-                  <span class="badge bg-warning"
-                    >Disclaimer: exceptions can be done for good cocktails
-                  </span>
-                </li>
-                <li>
-                  <span class="mybadge poppins-bold"> I speak:</span> Italian as
-                  a mother tongue, English, French and Spanish, and I can greet
-                  people in 5 more languages.
                 </li>
                 <li>
                   <span class="mybadge poppins-bold"> I work on:</span> Apple
@@ -125,17 +105,13 @@ export default {
                   cartoon-type, colored, full-of-animations-design… oh man, life
                   is so hard.
                 </li>
-                <li>
-                  <span class="mybadge poppins-bold"> Love to:</span> read,
-                  travel, play basketball
-                </li>
               </ul>
             </div>
           </div>
         </div>
         <!-- tools -->
-        <div class="col-12 rel px-0">
-          <div class="overlay dark"></div>
+        <div class="col-12 rel">
+          <div class="overlay"></div>
           <div class="tools_container">
             <h2 class="poppins-bold tools_title">Working Tools</h2>
             <v-icon class="tool" name="vi-file-type-html" scale="3" />
@@ -158,8 +134,25 @@ export default {
 <style lang="scss" scoped>
 // main and overlay
 
-#about{
+.link-container {
+  color: #cc0029;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+
+  text-transform: uppercase;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 1.5rem;
+}
+
+#about {
   height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  padding: 2rem 0;
 }
 
 h2,
@@ -167,7 +160,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.overlay.dark {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -181,6 +174,14 @@ h3 {
 
 .about_body {
   position: relative;
+
+  ul {
+    padding-left: 0;
+
+    li {
+      margin: 0.4rem 0;
+    }
+  }
 }
 
 .title-wrapper {
@@ -188,11 +189,13 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 1.5rem;
 }
 
 .line {
   display: inline-block;
-  height: 5px;
+  height: 2px;
   width: 50%;
   background-color: #cc0029;
   border-radius: 10px;
@@ -202,24 +205,17 @@ h3 {
 
 .about_avatar {
   text-align: center;
-  .avatar {
-    width: 400px;
+
+  img {
+    max-height: 400px;
   }
 }
 
 // call to action section
 
-.cTa_text {
+.call-to-action {
+  margin-top: 2.5rem;
   font-size: 1.2rem;
-}
-
-.btn {
-  font-size: 1.3rem;
-  color: black;
-}
-
-.btn:hover {
-  scale: 1.2;
 }
 
 // bio
@@ -227,6 +223,8 @@ h3 {
 .about_bio {
   font-size: 1.2rem;
   letter-spacing: 0.5px;
+
+  padding: 0 2.5rem;
 }
 
 // tools section
@@ -237,22 +235,20 @@ h3 {
 
 .tools_title {
   color: #cc0029;
-  margin: 1rem 0;
 }
 
 .tools_container {
   background: url("../assets/img/hero-bg.jpeg") no-repeat center center;
   background-size: cover;
 
-  padding: 1rem;
-
   width: 100%;
+  padding: 1.5rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  gap: 3rem;
+  gap: 2rem;
 
   img {
     max-height: 60px;

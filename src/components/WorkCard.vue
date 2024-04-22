@@ -9,19 +9,19 @@ export default {
 
 <template>
   <div class="col-3">
-    <div class="card work-card h-100">
-      <div class="card-header border-0 p-4">
+    <div class="card border-0 work-card h-100">
+      <div class="head border-bottom">
         <img :src="project.thumb" class="card-img-top mb-3" />
       </div>
       <div class="card-body">
         <h2 class="card-title poppins-bold subtitle">{{ project.title }}</h2>
-        <h5
+        <span
           class="raleway-reg tcs"
           v-for="(tech, index) in project.techs"
           :key="index"
         >
-          {{ tech }}
-        </h5>
+          {{ tech + ` ` }}
+        </span>
       </div>
       <div class="card-footer border-0" v-if="!isDetail">
         <RouterLink
@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  border-top-left-radius: 0;
+  border-top-left-radius: 6px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 10px;
@@ -55,8 +55,12 @@ export default {
   border-top: 1px solid #00000064;
 
 
-  .card-header{
-    // background-color: transparent;
+  .head{
+    background-color: transparent;
+
+    img{
+      height: 100%;
+    }
   }
 
 

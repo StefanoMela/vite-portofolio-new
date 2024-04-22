@@ -16,6 +16,7 @@ export default {
     };
   },
   components: { WorkCard, "v-icon": OhVueIcon },
+
   methods: {
     filterBy(technology) {
       this.filters = true;
@@ -25,7 +26,7 @@ export default {
       });
     },
     sortByRecent(){
-      if(this.sortBy === 'latest'){
+      if(this.sortBy === 'older'){
         this.filters = true;
         this.filteredProjects = this.store.projectList.toReversed();
         return this.filteredProjects;
@@ -85,10 +86,10 @@ export default {
       />
       <label for="sortBy" class="form-label raleway-reg">Sort by</label>
       <select class="form-select form-select-sm sort-by raleway-reg" name="sortBy" id="sortBy" v-model="sortBy" @change="sortByRecent()">
-        <option value="latest">Recent</option>
         <option value="older">Older</option>
+        <option value="recent">Recent</option>
       </select>
-    </div>
+        </div>
     <!-- cards -->
     <div class="row mt-3 g-4" v-if="!filters">
       <WorkCard
