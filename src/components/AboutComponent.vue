@@ -61,7 +61,7 @@ export default {
         <div class="col">
           <div class="about_avatar">
             <!-- avatar -->
-            <img src="../assets/img/avatar-tr.png" class="avatar d-sm-none" alt="" />
+            <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
             <!-- call to action -->
             <div class="call-to-action">
               <span class="poppins-bold">
