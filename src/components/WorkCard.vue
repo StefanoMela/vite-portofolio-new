@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div class="col-3">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card border-0 work-card h-100">
       <div class="head">
         <img :src="project.thumb" class="card-img-top mb-3" />
@@ -68,5 +68,10 @@ export default {
   padding: 0.5rem;
 
   border-radius: 0.3rem;
+}
+
+
+@media only screen and (max-width: 480px) {
+
 }
 </style>

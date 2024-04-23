@@ -1,6 +1,5 @@
 <script>
 import gsap from "gsap/gsap-core";
-
 import { OhVueIcon } from "oh-vue-icons";
 
 export default {
@@ -37,9 +36,23 @@ export default {
       );
       tl.from(".call-to-action", {});
     },
+
+    mediaAnimation() {
+      let mm = gsap.matchMedia();
+      mm.add("(max-width: 480px)", () => {
+        gsap.from(".line", {
+          autoAlpha: 0,
+          width: 0,
+          duration: 1,
+          stagger: { from: "center" },
+        });
+        gsap.from(".about_avatar", { autoAlpha: 0, duration: 1});
+      });
+    },
   },
   mounted() {
     this.fadeInTL();
+    this.mediaAnimation();
   },
 };
 </script>
@@ -65,7 +78,7 @@ export default {
             <!-- call to action -->
             <div class="call-to-action">
               <span class="poppins-bold">
-                <v-icon name="co-minutemailer" scale="2" class="cta_icons"/>
+                <v-icon name="co-minutemailer" scale="2" class="cta_icons" />
                 stefano.mela25@gmail.com
               </span>
               <div class="resume">
@@ -74,7 +87,8 @@ export default {
                   target="_blank"
                   class="poppins-bold"
                 >
-                  <v-icon name="ai-cv" scale="2" class="cta_icons" /> See Resume</a
+                  <v-icon name="ai-cv" scale="2" class="cta_icons" /> See
+                  Resume</a
                 >
               </div>
             </div>
@@ -231,7 +245,7 @@ h3 {
   align-items: center;
   gap: 0.2rem;
 
-  .cta_icons{
+  .cta_icons {
     color: #cc0029;
   }
 }
@@ -274,6 +288,52 @@ h3 {
 
   > * {
     z-index: 999;
+  }
+}
+
+// mobile query
+
+@media only screen and (max-width: 480px) {
+  #about {
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  .about_body {
+    height: 100%;
+  }
+
+  .title-wrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .line {
+    width: 80%;
+  }
+
+  .call-to-action {
+    font-size: 1rem;
+  }
+
+  .bio_top,
+  .bio_btm {
+    padding: 0 1rem;
+  }
+
+  .tools_container {
+    flex-wrap: wrap;
+
+    gap: 0.2rem;
+
+    .tools_title {
+      display: none;
+    }
+
+    img,
+    .tool {
+      max-height: 50px;
+      max-width: 50px;
+    }
   }
 }
 </style>

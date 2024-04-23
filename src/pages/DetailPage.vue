@@ -32,12 +32,12 @@ export default {
 </script>
 
 <template>
-  <section class="project-detail container">
+  <section class="project-detail container d-sm-flex flex-sm-column flex-md-row">
     <div class="row g-3">
       <h2 class="card-title poppins-bold subtitle text-center my-3">
         {{ project.title }}
       </h2>
-      <div class="col gallery">
+      <div class="col-12 gallery">
         <div class="img-container">
           <img :src="project.thumb" class="card-img-top border" />
         </div>
@@ -57,7 +57,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-12">
         <div class="card-body">
           <div class="tech-container">
             <h5 class="poppins-bold subtitle-sm">Technology:</h5>

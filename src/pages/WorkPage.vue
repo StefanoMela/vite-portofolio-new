@@ -11,7 +11,7 @@ export default {
       selectedFilter: "",
       filteredProjects: [],
       filters: false,
-      sortBy: '',
+      sortBy: "",
       reversedWorks: [],
     };
   },
@@ -25,15 +25,15 @@ export default {
         return project.techs.includes(technology);
       });
     },
-    sortByRecent(){
-      if(this.sortBy === 'older'){
+    sortByRecent() {
+      if (this.sortBy === "older") {
         this.filters = true;
         this.filteredProjects = this.store.projectList.toReversed();
         return this.filteredProjects;
       } else {
-        return this.filters = false;
+        return (this.filters = false);
       }
-    }
+    },
   },
 };
 </script>
@@ -50,10 +50,8 @@ export default {
       <h5 class="raleway-reg">A collection of my projects</h5>
     </div>
 
-    <div
-      class="filter-wrapper mt-3"
-    >
-    <p class="raleway-reg" for="filterSelect">Filters</p>
+    <div class="filter-wrapper mt-3 flex-xs-wrap flex-sm-wrap flex-md-wrap">
+      <p class="raleway-reg" for="filterSelect">Filters</p>
       <v-icon
         @click="filterBy('HTML')"
         class="tool"
@@ -84,12 +82,18 @@ export default {
         src="../assets/img/stacks/laravel.svg"
         alt=""
       />
-      <label for="sortBy" class="form-label raleway-reg">Sort by</label>
-      <select class="form-select form-select-sm sort-by raleway-reg" name="sortBy" id="sortBy" v-model="sortBy" @change="sortByRecent()">
+      <label for="sortBy" class="form-label raleway-reg d-none d-md-block">Sort by</label>
+      <select
+        class="form-select form-select-sm sort-by raleway-reg d-none d-md-block"
+        name="sortBy"
+        id="sortBy"
+        v-model="sortBy"
+        @change="sortByRecent()"
+      >
         <option value="older">Older</option>
         <option value="recent">Recent</option>
       </select>
-        </div>
+    </div>
     <!-- cards -->
     <div class="row mt-3 g-4" v-if="!filters">
       <WorkCard
@@ -118,7 +122,6 @@ export default {
   }
 }
 
-
 .link-container {
   color: #cc0029;
   font-size: 0.8rem;
@@ -130,11 +133,9 @@ export default {
   right: 0;
   margin: 1.5rem 0;
   rotate: -90deg;
-  
 }
 
 .filter-wrapper {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,8 +154,24 @@ export default {
     scale: 1.5;
   }
 
-  .sort-by{
+  .sort-by {
     width: 10%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .works {
+    height: 100vh;
+  }
+  .filter-wrapper {
+    flex-wrap: wrap;
+
+    gap: 0.2;
+
+    .form-label,
+    .form-select {
+      display: none;
+    }
   }
 }
 </style>
