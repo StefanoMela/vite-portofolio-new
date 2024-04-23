@@ -59,7 +59,7 @@ export default {
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid">
+  <section id="about" class="container-fluid overflow-scroll">
     <div class="about_body">
       <div class="link-container poppins-bold">
         <RouterLink :to="{ name: 'works' }"> < Works / > </RouterLink>
@@ -293,7 +293,7 @@ h3 {
 
 // mobile query
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1120px) {
   #about {
     height: 100vh;
     overflow: scroll;
