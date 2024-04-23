@@ -2,8 +2,6 @@
 import WorkCard from "../components/WorkCard.vue";
 import { store } from "../data/store.js";
 
-import { Flip } from "gsap/Flip";
-
 export default {
   data() {
     return {

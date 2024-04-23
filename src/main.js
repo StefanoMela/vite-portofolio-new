@@ -6,9 +6,7 @@ import {router} from './router/index.js'
 // import GSAP for animations
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flip } from "gsap/Flip";
 
-gsap.registerPlugin(Flip) 
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -26,7 +24,8 @@ import { ViFileTypeJsOfficial } from "oh-vue-icons/icons";
 import { ViFileTypeVue } from "oh-vue-icons/icons";
 import { ViFileTypePhp } from "oh-vue-icons/icons";
 import { ViFileTypeMysql } from "oh-vue-icons/icons";
-addIcons(BiMegaphone, RiCodeSSlashFill, CoMinutemailer, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql)
+import { AiCv } from "oh-vue-icons/icons";
+addIcons(BiMegaphone, RiCodeSSlashFill, CoMinutemailer, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql, AiCv)
 
 // import style
 import './assets/css/style.scss'

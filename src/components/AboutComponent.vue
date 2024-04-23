@@ -65,9 +65,18 @@ export default {
             <!-- call to action -->
             <div class="call-to-action">
               <span class="poppins-bold">
-                <v-icon name="co-minutemailer" scale="1.7" />
+                <v-icon name="co-minutemailer" scale="2" class="cta_icons"/>
                 stefano.mela25@gmail.com
               </span>
+              <div class="resume">
+                <a
+                  href="https://www.canva.com/design/DAGC23R-rs0/mTN5KXF_Dmok6UJ0uLp4fg/view"
+                  target="_blank"
+                  class="poppins-bold"
+                >
+                  <v-icon name="ai-cv" scale="2" class="cta_icons" /> See Resume</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -77,8 +86,8 @@ export default {
             <div class="bio_top">
               <h3 class="subtitle poppins-bold">Bio</h3>
               <p class="raleway-reg">
-                After few years of work in the hospitality industry I've
-                decided to focus on my intrest on the digital world and become a
+                After few years of work in the hospitality industry I've decided
+                to focus on my intrest on the digital world and become a
                 developer. <br />
                 I come with a handful luggage of problem solving and
                 interpersonal skills, such as communication, empathy, and
@@ -214,10 +223,18 @@ h3 {
 // call to action section
 
 .call-to-action {
-  margin-top: 2.5rem;
-  font-size: 1.2rem;
-}
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+
+  .cta_icons{
+    color: #cc0029;
+  }
+}
 // bio
 
 .about_bio {

@@ -10,7 +10,7 @@ export default {
 <template>
   <div class="col-3">
     <div class="card border-0 work-card h-100">
-      <div class="head border-bottom">
+      <div class="head">
         <img :src="project.thumb" class="card-img-top mb-3" />
       </div>
       <div class="card-body">
@@ -48,22 +48,13 @@ export default {
   border-bottom-left-radius: 10px;
 
   box-shadow: 12px -5px 3px #00000064;
-
-  border: none;
-  border-left: 1px solid #00000064;
-  border-bottom: 1px solid #00000064;
-  border-top: 1px solid #00000064;
-
-
-  .head{
+  .head {
     background-color: transparent;
 
-    img{
+    img {
       height: 100%;
     }
   }
-
-
 }
 
 .button {
