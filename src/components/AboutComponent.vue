@@ -46,7 +46,7 @@ export default {
           duration: 1,
           stagger: { from: "center" },
         });
-        gsap.from(".about_avatar", { autoAlpha: 0, duration: 1});
+        gsap.from(".about_avatar", { autoAlpha: 0, duration: 1 });
       });
     },
   },
@@ -59,7 +59,7 @@ export default {
 
 <template>
   <!-- About Section -->
-  <section id="about" class="container-fluid overflow-scroll">
+  <section id="about" class="container-fluid overflow-xs-scroll">
     <div class="about_body">
       <div class="link-container poppins-bold">
         <RouterLink :to="{ name: 'works' }"> < Works / > </RouterLink>
@@ -335,5 +335,27 @@ h3 {
       max-width: 50px;
     }
   }
+}
+
+@media only screen and (min-width: 1120px) {
+
+  #about{
+
+    padding: 0;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .about_bio{
+      margin: 3rem 0;
+    }
+
+
+  }
+
+
 }
 </style>
