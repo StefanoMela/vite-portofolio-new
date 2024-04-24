@@ -8,38 +8,42 @@ export default {
   },
 
   methods: {
-    preventAnim(){
+    preventAnim() {
       let mm = gsap.matchMedia();
 
-      mm.add("(min-width: 576px)", ()=>{
+      mm.add("(min-width: 576px)", () => {
         let tl = gsap.timeline({
-        defaults: { autoAlpha: 0, ease: "power1.out" },
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top center",
-        },
+          defaults: { autoAlpha: 0, ease: "power1.out" },
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top center",
+          },
+        });
+        tl.from(".line", {
+          width: 0,
+          duration: 2,
+          stagger: { from: "center" },
+        });
+        tl.from(".about_avatar", { duration: 1 });
+        tl.from(
+          ".bio_top",
+          {
+            scale: 0,
+          },
+          ">-1"
+        );
+        tl.from(".bio_btm *", {
+          x: 550,
+          stagger: 0.1,
+        });
+        tl.from(
+          ".tools_container *",
+          { stagger: { amount: 2, from: "center" } },
+          ">-3"
+        );
+        tl.from(".call-to-action", {});
       });
-      tl.from(".line", { width: 0, duration: 2, stagger: { from: "center" } });
-      tl.from(".about_avatar", { duration: 1 });
-      tl.from(
-        ".bio_top",
-        {
-          scale: 0,
-        },
-        ">-1"
-      );
-      tl.from(".bio_btm *", {
-        x: 550,
-        stagger: 0.1,
-      });
-      tl.from(
-        ".tools_container *",
-        { stagger: { amount: 2, from: "center" } },
-        ">-3"
-      );
-      tl.from(".call-to-action", {});
-      })
-    }
+    },
   },
   mounted() {
     this.preventAnim();
@@ -188,6 +192,8 @@ h3 {
 .about_body {
   position: relative;
 
+  overflow-y: auto;
+
   ul {
     padding-left: 0;
 
@@ -219,7 +225,7 @@ h3 {
 .about_avatar {
   text-align: center;
 
-  img {
+  .avatar {
     max-height: 400px;
   }
 }
@@ -271,8 +277,7 @@ h3 {
 
   gap: 2rem;
 
-  img {
-    max-height: 60px;
+  .tool {
     max-width: 60px;
   }
 
@@ -288,13 +293,8 @@ h3 {
     height: 100%;
   }
 
-  .about_body {
-    height: 100%;
-  }
-
   .title-wrapper {
     margin-bottom: 0.5rem;
-    
   }
 
   .line {

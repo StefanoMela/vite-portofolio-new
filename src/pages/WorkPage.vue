@@ -160,6 +160,8 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
+
+
   .filter-wrapper {
     flex-wrap: wrap;
 
@@ -177,5 +179,11 @@ export default {
       top: -35px;
     }
   }
+
+  .link-container{
+
+    margin: 5px -25px;
+  }
+
 }
 </style>
