@@ -8,51 +8,45 @@ export default {
   },
 
   methods: {
-    fadeInTL() {
-      let tl = gsap.timeline({
-        defaults: { autoAlpha: 0, ease: "power1.out" },
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top center",
-        },
-      });
-      tl.from(".line", { width: 0, duration: 2, stagger: { from: "center" } });
-      tl.from(".about_avatar", { duration: 1 });
-      tl.from(
-        ".bio_top",
-        {
-          scale: 0,
-        },
-        ">-1"
-      );
-      tl.from(".bio_btm *", {
-        x: 550,
-        stagger: 0.1,
-      });
-      tl.from(
-        ".tools_container *",
-        { stagger: { amount: 2, from: "center" } },
-        ">-3"
-      );
-      tl.from(".call-to-action", {});
-    },
-
-    mediaAnimation() {
+    preventAnim() {
       let mm = gsap.matchMedia();
-      mm.add("(max-width: 480px)", () => {
-        gsap.from(".line", {
-          autoAlpha: 0,
+
+      mm.add("(min-width: 576px)", () => {
+        let tl = gsap.timeline({
+          defaults: { autoAlpha: 0, ease: "power1.out" },
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top center",
+          },
+        });
+        tl.from(".line", {
           width: 0,
-          duration: 1,
+          duration: 2,
           stagger: { from: "center" },
         });
-        gsap.from(".about_avatar", { autoAlpha: 0, duration: 1 });
+        tl.from(".about_avatar", { duration: 1 });
+        tl.from(
+          ".bio_top",
+          {
+            scale: 0,
+          },
+          ">-1"
+        );
+        tl.from(".bio_btm *", {
+          x: 550,
+          stagger: 0.1,
+        });
+        tl.from(
+          ".tools_container *",
+          { stagger: { amount: 2, from: "center" } },
+          ">-3"
+        );
+        tl.from(".call-to-action", {});
       });
     },
   },
   mounted() {
-    this.fadeInTL();
-    this.mediaAnimation();
+    this.preventAnim();
   },
 };
 </script>
@@ -71,7 +65,7 @@ export default {
         <span class="line"></span>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-12 col-lg">
           <div class="about_avatar">
             <!-- avatar -->
             <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
@@ -133,7 +127,7 @@ export default {
           </div>
         </div>
         <!-- tools -->
-        <div class="col-12 rel">
+        <div class="col-lg-12 rel px-0 tools_col">
           <div class="overlay"></div>
           <div class="tools_container">
             <h2 class="poppins-bold tools_title">Working Tools</h2>
@@ -171,7 +165,7 @@ export default {
 }
 
 #about {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
 
@@ -197,6 +191,8 @@ h3 {
 
 .about_body {
   position: relative;
+
+  overflow-y: auto;
 
   ul {
     padding-left: 0;
@@ -229,7 +225,7 @@ h3 {
 .about_avatar {
   text-align: center;
 
-  img {
+  .avatar {
     max-height: 400px;
   }
 }
@@ -281,8 +277,7 @@ h3 {
 
   gap: 2rem;
 
-  img {
-    max-height: 60px;
+  .tool {
     max-width: 60px;
   }
 
@@ -293,14 +288,16 @@ h3 {
 
 // mobile query
 
-@media only screen and (max-width: 1120px) {
-  #about {
-    height: 100vh;
-    overflow: scroll;
+@media only screen and (max-width: 576px) {
+
+  .avatar {
+    height: 300px;
   }
 
-  .about_body {
-    height: 100%;
+  .about_bio {
+    padding: 0 1rem;
+
+    margin: 1rem 0;
   }
 
   .title-wrapper {
@@ -315,21 +312,15 @@ h3 {
     font-size: 1rem;
   }
 
-  .bio_top,
-  .bio_btm {
-    padding: 0 1rem;
-  }
-
   .tools_container {
     flex-wrap: wrap;
 
-    gap: 0.2rem;
+    gap: 2rem;
 
     .tools_title {
       display: none;
     }
 
-    img,
     .tool {
       max-height: 50px;
       max-width: 50px;
@@ -337,25 +328,20 @@ h3 {
   }
 }
 
-@media only screen and (min-width: 1120px) {
 
-  #about{
+@media only screen and (max-width: 1024px){
 
-    padding: 0;
-
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-
-    .about_bio{
-      margin: 3rem 0;
-    }
-
-
+  .tools_col{
+    max-width: 100%;
   }
+  .tools_container{
 
+    max-width: 100%;
 
+    .tools_title{
+      display: none;
+    }
+    gap: .3rem;
+  }
 }
 </style>

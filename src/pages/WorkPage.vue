@@ -50,7 +50,7 @@ export default {
       <h5 class="raleway-reg">A collection of my projects</h5>
     </div>
 
-    <div class="filter-wrapper mt-3 flex-xs-wrap flex-sm-wrap flex-md-wrap">
+    <div class="filter-wrapper mt-3">
       <p class="raleway-reg" for="filterSelect">Filters</p>
       <v-icon
         @click="filterBy('HTML')"
@@ -159,19 +159,31 @@ export default {
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .works {
-    height: 100vh;
-  }
+@media only screen and (max-width: 576px) {
+
+
   .filter-wrapper {
     flex-wrap: wrap;
 
-    gap: 0.2;
+    gap: 0.5;
+
+    position: relative;
 
     .form-label,
     .form-select {
       display: none;
     }
+
+    p{
+      position: absolute;
+      top: -35px;
+    }
   }
+
+  .link-container{
+
+    margin: 5px -25px;
+  }
+
 }
 </style>
