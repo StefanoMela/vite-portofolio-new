@@ -13,9 +13,7 @@ export default {
   <!-- Hero Section -->
   <section class="hero container-fluid">
     <div class="link-container poppins-bold">
-      <RouterLink :to="{ name: 'works' }">
-        < Works / >
-      </RouterLink>
+      <RouterLink :to="{ name: 'works' }"> < Works / > </RouterLink>
     </div>
     <div class="overlay"></div>
     <div class="hero_content">
@@ -98,15 +96,11 @@ export default {
   right: 0;
   margin-bottom: 3rem;
   margin-right: 1.5rem;
-  
+
   color: #cc0029;
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
   z-index: 1;
-
-  :nth-child(2){
-    margin-left: 2.5rem;
-  }
 }
 
 .job::before,
@@ -141,7 +135,7 @@ export default {
   justify-content: center;
   align-items: start;
 
-  transform: translateY(400%);
+  transform: translateY(250px);
 
   border: 3px solid white;
 
@@ -184,5 +178,29 @@ export default {
   gap: 2rem;
 
   margin-right: 1rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .hero {
+    h3 {
+      font-size: 1.3rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+    }
+  }
+
+  .social{
+    margin-right: .4rem;
+  }
+
+  .scroller {
+    transform: translateY(220px);
+  }
+  
+
+  .link-container{
+    margin-bottom: 2rem;
+  }
 }
 </style>

@@ -8,8 +8,11 @@ export default {
   },
 
   methods: {
-    fadeInTL() {
-      let tl = gsap.timeline({
+    preventAnim(){
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 576px)", ()=>{
+        let tl = gsap.timeline({
         defaults: { autoAlpha: 0, ease: "power1.out" },
         scrollTrigger: {
           trigger: "#about",
@@ -35,24 +38,11 @@ export default {
         ">-3"
       );
       tl.from(".call-to-action", {});
-    },
-
-    mediaAnimation() {
-      let mm = gsap.matchMedia();
-      mm.add("(max-width: 480px)", () => {
-        gsap.from(".line", {
-          autoAlpha: 0,
-          width: 0,
-          duration: 1,
-          stagger: { from: "center" },
-        });
-        gsap.from(".about_avatar", { autoAlpha: 0, duration: 1 });
-      });
-    },
+      })
+    }
   },
   mounted() {
-    this.fadeInTL();
-    this.mediaAnimation();
+    this.preventAnim();
   },
 };
 </script>
@@ -293,10 +283,9 @@ h3 {
 
 // mobile query
 
-@media only screen and (max-width: 1120px) {
+@media only screen and (max-width: 576px) {
   #about {
-    height: 100vh;
-    overflow: scroll;
+    height: 100%;
   }
 
   .about_body {
@@ -305,6 +294,7 @@ h3 {
 
   .title-wrapper {
     margin-bottom: 0.5rem;
+    
   }
 
   .line {
@@ -323,7 +313,7 @@ h3 {
   .tools_container {
     flex-wrap: wrap;
 
-    gap: 0.2rem;
+    gap: 2rem;
 
     .tools_title {
       display: none;
@@ -337,25 +327,21 @@ h3 {
   }
 }
 
-@media only screen and (min-width: 1120px) {
+// @media only screen and (min-width: 1120px) {
 
-  #about{
+//   #about{
 
-    padding: 0;
+//     padding: 0;
 
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+//     .about_bio{
+//       margin: 3rem 0;
+//     }
 
+//   }
 
-    .about_bio{
-      margin: 3rem 0;
-    }
-
-
-  }
-
-
-}
+// }
 </style>
