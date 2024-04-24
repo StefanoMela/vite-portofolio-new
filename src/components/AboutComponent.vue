@@ -65,7 +65,7 @@ export default {
         <span class="line"></span>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-12 col-lg">
           <div class="about_avatar">
             <!-- avatar -->
             <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
@@ -127,7 +127,7 @@ export default {
           </div>
         </div>
         <!-- tools -->
-        <div class="col-12 rel">
+        <div class="col-lg-12 rel px-0 tools_col">
           <div class="overlay"></div>
           <div class="tools_container">
             <h2 class="poppins-bold tools_title">Working Tools</h2>
@@ -165,7 +165,7 @@ export default {
 }
 
 #about {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
 
@@ -289,8 +289,15 @@ h3 {
 // mobile query
 
 @media only screen and (max-width: 576px) {
-  #about {
-    height: 100%;
+
+  .avatar {
+    height: 300px;
+  }
+
+  .about_bio {
+    padding: 0 1rem;
+
+    margin: 1rem 0;
   }
 
   .title-wrapper {
@@ -305,11 +312,6 @@ h3 {
     font-size: 1rem;
   }
 
-  .bio_top,
-  .bio_btm {
-    padding: 0 1rem;
-  }
-
   .tools_container {
     flex-wrap: wrap;
 
@@ -319,7 +321,6 @@ h3 {
       display: none;
     }
 
-    img,
     .tool {
       max-height: 50px;
       max-width: 50px;
@@ -327,21 +328,20 @@ h3 {
   }
 }
 
-// @media only screen and (min-width: 1120px) {
 
-//   #about{
+@media only screen and (max-width: 1024px){
 
-//     padding: 0;
+  .tools_col{
+    max-width: 100%;
+  }
+  .tools_container{
 
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
+    max-width: 100%;
 
-//     .about_bio{
-//       margin: 3rem 0;
-//     }
-
-//   }
-
-// }
+    .tools_title{
+      display: none;
+    }
+    gap: .3rem;
+  }
+}
 </style>
