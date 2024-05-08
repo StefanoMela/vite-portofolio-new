@@ -55,9 +55,6 @@ export default {
   <!-- About Section -->
   <section id="about" class="container-fluid overflow-xs-scroll">
     <div class="about_body">
-      <div class="link-container poppins-bold">
-        <RouterLink :to="{ name: 'works' }"> < Works / > </RouterLink>
-      </div>
       <!-- title -->
       <div class="title-wrapper container">
         <h3 class="poppins-bold subtitle">about</h3>
@@ -70,20 +67,23 @@ export default {
             <!-- avatar -->
             <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
             <!-- call to action -->
-            <div class="call-to-action">
-              <span class="poppins-bold">
+            <div class="call-to-action poppins-bold">
+              <div>
                 <v-icon name="co-minutemailer" scale="2" class="cta_icons" />
                 stefano.mela25@gmail.com
-              </span>
-              <div class="resume">
+              </div>
+              <div class="div">
                 <a
                   href="https://www.canva.com/design/DAGC23R-rs0/mTN5KXF_Dmok6UJ0uLp4fg/view"
                   target="_blank"
-                  class="poppins-bold"
                 >
                   <v-icon name="ai-cv" scale="2" class="cta_icons" /> See
                   Resume</a
                 >
+              </div>
+              <div>
+                <v-icon name="bi-code-slash" scale="2" class="cta_icons" />
+                <RouterLink :to="{ name: 'works' }">Works</RouterLink>
               </div>
             </div>
           </div>
@@ -150,19 +150,6 @@ export default {
 
 <style lang="scss" scoped>
 // main and overlay
-
-.link-container {
-  color: #cc0029;
-  font-size: 0.8rem;
-  letter-spacing: 0.2rem;
-
-  text-transform: uppercase;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0 1.5rem;
-}
 
 #about {
   height: 100%;
@@ -289,7 +276,6 @@ h3 {
 // mobile query
 
 @media only screen and (max-width: 576px) {
-
   .avatar {
     height: 300px;
   }
@@ -328,20 +314,17 @@ h3 {
   }
 }
 
-
-@media only screen and (max-width: 1024px){
-
-  .tools_col{
+@media only screen and (max-width: 1024px) {
+  .tools_col {
     max-width: 100%;
   }
-  .tools_container{
-
+  .tools_container {
     max-width: 100%;
 
-    .tools_title{
+    .tools_title {
       display: none;
     }
-    gap: .3rem;
+    gap: 0.3rem;
   }
 }
 </style>

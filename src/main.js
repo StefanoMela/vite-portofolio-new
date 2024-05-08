@@ -25,7 +25,8 @@ import { ViFileTypeVue } from "oh-vue-icons/icons";
 import { ViFileTypePhp } from "oh-vue-icons/icons";
 import { ViFileTypeMysql } from "oh-vue-icons/icons";
 import { AiCv } from "oh-vue-icons/icons";
-addIcons(BiMegaphone, RiCodeSSlashFill, CoMinutemailer, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql, AiCv)
+import { BiCodeSlash } from "oh-vue-icons/icons";
+addIcons(BiMegaphone, RiCodeSSlashFill, CoMinutemailer, FaInstagram, FaGithub, FaLinkedin, ViFileTypeHtml, ViFileTypeCss, ViFileTypeJsOfficial, ViFileTypeVue, ViFileTypePhp, ViFileTypeMysql, AiCv, BiCodeSlash)
 
 // import style
 import './assets/css/style.scss'
