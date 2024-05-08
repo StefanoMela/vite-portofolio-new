@@ -68,11 +68,11 @@ export default {
             <img src="../assets/img/avatar-tr.png" class="avatar" alt="" />
             <!-- call to action -->
             <div class="call-to-action poppins-bold">
-              <div>
+              <div class="email">
                 <v-icon name="co-minutemailer" scale="2" class="cta_icons" />
                 stefano.mela25@gmail.com
               </div>
-              <div class="div">
+              <div class="resume">
                 <a
                   href="https://www.canva.com/design/DAGC23R-rs0/mTN5KXF_Dmok6UJ0uLp4fg/view"
                   target="_blank"
@@ -81,9 +81,25 @@ export default {
                   Resume</a
                 >
               </div>
-              <div>
+              <div class="works">
                 <v-icon name="bi-code-slash" scale="2" class="cta_icons" />
                 <RouterLink :to="{ name: 'works' }">Works</RouterLink>
+              </div>
+              <div class="social">
+                <a
+                  href="https://www.github.com/StefanoMela"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon name="fa-github"  scale="2" class="cta_icons"/>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/smela/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon name="fa-linkedin" scale="2" class="cta_icons" />
+                </a>
               </div>
             </div>
           </div>
@@ -139,7 +155,6 @@ export default {
             <img class="tool" src="../assets/img/stacks/axios.svg" alt="" />
             <v-icon class="tool" name="vi-file-type-php" scale="3" />
             <v-icon class="tool" name="vi-file-type-mysql" scale="3" />
-            <img class="tool" src="../assets/img/stacks/node.png" alt="" />
             <img class="tool" src="../assets/img/stacks/laravel.svg" alt="" />
           </div>
         </div>
@@ -152,11 +167,11 @@ export default {
 // main and overlay
 
 #about {
-  height: 100%;
   overflow: hidden;
   position: relative;
 
-  padding: 2rem 0;
+  padding: 0;
+
 }
 
 h2,
@@ -220,7 +235,7 @@ h3 {
 // call to action section
 
 .call-to-action {
-  margin-top: 1.5rem;
+  margin: 1rem;
   font-size: 1.5rem;
 
   display: flex;

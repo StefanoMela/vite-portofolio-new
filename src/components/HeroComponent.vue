@@ -32,13 +32,6 @@ export default {
 
       <div class="social">
         <a
-          href="https://www.instagram.com/melass"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <v-icon name="fa-instagram" />
-        </a>
-        <a
           href="https://www.github.com/StefanoMela"
           target="_blank"
           rel="noopener noreferrer"
