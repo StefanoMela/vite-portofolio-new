@@ -4,3 +4,5 @@ Not thinking about mediaqueries atm, it's still a bit responsive, thanks to boot
 Next focus will be on building a more efficent UI, improving graphics and texts.
 
 I've worked with Vite + Vue, Bootstrap, Sass and tried to play around with GSAP.
+
+Link: https://melass-portfolio.netlify.app/
