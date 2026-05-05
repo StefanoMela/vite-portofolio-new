@@ -8,73 +8,138 @@ export default {
 </script>
 
 <template>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 single">
-    <div class="card border-0 work-card h-100">
-      <div class="head">
-        <img :src="project.thumb" class="card-img-top mb-3" />
+  <article class="work-card card-modern">
+    <RouterLink
+      :to="{
+        name: 'project-detail',
+        params: { slug: project.slug },
+      }"
+      class="card-link"
+    >
+      <div class="card-image">
+        <img :src="project.thumb" :alt="project.title" />
+        <div class="card-overlay">
+          <span class="view-text">View Project</span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </div>
       </div>
-      <div class="card-body">
-        <h2 class="card-title poppins-bold subtitle">{{ project.title }}</h2>
-        <span
-          class="raleway-reg tcs"
-          v-for="(tech, index) in project.techs"
-          :key="index"
-        >
-          {{ tech + ` ` }}
-        </span>
+      <div class="card-content">
+        <h3 class="card-title font-display">{{ project.title }}</h3>
+        <p class="card-brief">{{ project.brief.substring(0, 80) }}...</p>
+        <div class="card-techs">
+          <span
+            v-for="(tech, index) in project.techs"
+            :key="index"
+            class="badge-tech"
+          >
+            {{ tech.trim() }}
+          </span>
+        </div>
       </div>
-      <div class="card-footer border-0" v-if="!isDetail">
-        <RouterLink
-          class="button raleway-reg"
-          :to="{
-            name: 'project-detail',
-            params: {
-              slug: project.slug,
-            },
-          }"
-        >
-          Details
-        </RouterLink>
-      </div>
-    </div>
-  </div>
+    </RouterLink>
+  </article>
 </template>
 
 <style lang="scss" scoped>
-.card {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 10px;
+.work-card {
+  height: 100%;
+}
 
-  box-shadow: 12px -5px 3px #00000064;
-  .head {
-    background-color: transparent;
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
 
-    img {
-      height: 100%;
-    }
+.card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-surface-elevated);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+  }
+
+  .work-card:hover & img {
+    transform: scale(1.05);
   }
 }
 
-.button {
-  display: inline-block;
-  border: 1px solid black;
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  gap: var(--space-sm);
+  color: var(--color-text-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+
+  .work-card:hover & {
+    opacity: 1;
+  }
+}
+
+.view-text {
+  font-size: 0.75rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-weight: 700;
-
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-
-  border-radius: 0.3rem;
+  letter-spacing: 0.1em;
 }
 
+.card-content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
 
-@media only screen and (max-width: 576px) {
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
 
-  .single{
-    padding: 0 2rem;
+  .work-card:hover & {
+    color: var(--color-accent);
   }
+}
+
+.card-brief {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.card-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 </style>

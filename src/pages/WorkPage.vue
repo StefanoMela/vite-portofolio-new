@@ -1,189 +1,241 @@
 <script>
 import WorkCard from "../components/WorkCard.vue";
 import { store } from "../data/store";
-
 import { OhVueIcon } from "oh-vue-icons";
 
 export default {
   data() {
     return {
       store,
-      selectedFilter: "",
-      filteredProjects: [],
-      filters: false,
-      sortBy: "",
-      reversedWorks: [],
+      selectedFilter: "All",
+      filters: ["All", "HTML", "CSS", "JS", "Vue", "Laravel"],
     };
   },
   components: { WorkCard, "v-icon": OhVueIcon },
-
-  methods: {
-    filterBy(technology) {
-      this.filters = true;
-      this.selectedFilter = technology;
-      this.filteredProjects = this.store.projectList.filter((project) => {
-        return project.techs.includes(technology);
-      });
-    },
-    sortByRecent() {
-      if (this.sortBy === "older") {
-        this.filters = true;
-        this.filteredProjects = this.store.projectList.toReversed();
-        return this.filteredProjects;
-      } else {
-        return (this.filters = false);
+  computed: {
+    filteredProjects() {
+      if (this.selectedFilter === "All") {
+        return this.store.projectList;
       }
+      return this.store.projectList.filter((project) =>
+        project.techs.some((tech) => tech.trim() === this.selectedFilter)
+      );
+    },
+  },
+  methods: {
+    setFilter(filter) {
+      this.selectedFilter = filter;
     },
   },
 };
 </script>
 
 <template>
-  <!-- work page -->
-  <section class="works container py-5">
-    <div class="link-container poppins-bold">
-      <RouterLink :to="{ name: 'landing' }"> < Home / > </RouterLink>
-    </div>
-    <div class="title-wrapper mb-5">
-      <h3 class="poppins-bold subtitle">Portfolio</h3>
-      <h1 class="raleway-reg">Check out some of my works</h1>
-      <h5 class="raleway-reg">A collection of my projects</h5>
-    </div>
+  <main class="works-page">
+    <header class="page-header">
+      <div class="container">
+        <RouterLink :to="{ name: 'landing' }" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Home</span>
+        </RouterLink>
 
-    <div class="filter-wrapper mt-3">
-      <p class="raleway-reg" for="filterSelect">Filters</p>
-      <v-icon
-        @click="filterBy('HTML')"
-        class="tool"
-        name="vi-file-type-html"
-        scale="3"
-      />
-      <v-icon
-        @click="filterBy('CSS')"
-        class="tool"
-        name="vi-file-type-css"
-        scale="3"
-      />
-      <v-icon
-        @click="filterBy('JS')"
-        class="tool"
-        name="vi-file-type-js-official"
-        scale="3"
-      />
-      <v-icon
-        @click="filterBy('Vue')"
-        class="tool"
-        name="vi-file-type-vue"
-        scale="3"
-      />
-      <img
-        @click="filterBy('Laravel')"
-        class="tool"
-        src="../assets/img/stacks/laravel.svg"
-        alt=""
-      />
-      <label for="sortBy" class="form-label raleway-reg d-none d-md-block">Sort by</label>
-      <select
-        class="form-select form-select-sm sort-by raleway-reg d-none d-md-block"
-        name="sortBy"
-        id="sortBy"
-        v-model="sortBy"
-        @change="sortByRecent()"
-      >
-        <option value="older">Older</option>
-        <option value="recent">Recent</option>
-      </select>
-    </div>
-    <!-- cards -->
-    <div class="row mt-3 g-4" v-if="!filters">
-      <WorkCard
-        v-for="(project, index) in store.projectList"
-        :key="index"
-        :project="project"
-        :isDetail="false"
-      />
-    </div>
-    <div class="row mt-3 g-4" v-if="filters">
-      <WorkCard
-        v-for="(project, index) in this.filteredProjects"
-        :key="index"
-        :project="project"
-      />
-    </div>
-  </section>
+        <div class="header-content">
+          <span class="section-label font-display">Portfolio</span>
+          <h1 class="page-title font-display">Selected Works</h1>
+          <p class="page-description">
+            A collection of projects I&apos;ve built, from full-stack applications to
+            frontend experiments.
+          </p>
+        </div>
+
+        <div class="filters">
+          <span class="filter-label">Filter by:</span>
+          <div class="filter-buttons">
+            <button
+              v-for="filter in filters"
+              :key="filter"
+              :class="['filter-btn', { active: selectedFilter === filter }]"
+              @click="setFilter(filter)"
+            >
+              {{ filter }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="works-grid-section">
+      <div class="container">
+        <div class="projects-count">
+          <span>{{ filteredProjects.length }} projects</span>
+        </div>
+
+        <TransitionGroup name="fade" tag="div" class="works-grid">
+          <WorkCard
+            v-for="project in filteredProjects"
+            :key="project.slug"
+            :project="project"
+            :isDetail="false"
+          />
+        </TransitionGroup>
+      </div>
+    </section>
+  </main>
 </template>
 
 <style lang="scss" scoped>
-.title-wrapper {
-  text-align: center;
-
-  h1 {
-    margin: 1rem 0;
-  }
+.works-page {
+  min-height: 100vh;
+  background-color: var(--color-background);
 }
 
-.link-container {
-  color: #cc0029;
-  font-size: 0.8rem;
-  letter-spacing: 0.2rem;
-
-  text-transform: uppercase;
-
-  position: fixed;
-  right: 0;
-  margin: 1.5rem 0;
-  rotate: -90deg;
+.page-header {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.filter-wrapper {
-  display: flex;
-  justify-content: center;
+.back-link {
+  display: inline-flex;
   align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xl);
+  transition: color var(--transition-fast);
 
-  img {
-    width: 57.59px;
-  }
-
-  gap: 2rem;
-
-  .tool {
-    cursor: pointer;
-  }
-
-  .tool:hover {
-    scale: 1.5;
-  }
-
-  .sort-by {
-    width: 10%;
+  &:hover {
+    color: var(--color-accent);
   }
 }
 
-@media only screen and (max-width: 576px) {
+.header-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+}
 
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
 
-  .filter-wrapper {
-    flex-wrap: wrap;
+.page-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-md);
+}
 
-    gap: 0.5;
+.page-description {
+  color: var(--color-text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
 
-    position: relative;
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
 
-    .form-label,
-    .form-select {
-      display: none;
-    }
+.filter-label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
 
-    p{
-      position: absolute;
-      top: -35px;
-    }
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-text-muted);
+    color: var(--color-text-primary);
   }
 
-  .link-container{
+  &.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-background);
+  }
+}
 
-    margin: 5px -25px;
+.works-grid-section {
+  padding: var(--space-2xl) 0 var(--space-4xl);
+}
+
+.projects-count {
+  margin-bottom: var(--space-lg);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl);
+}
+
+// Transition animations
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.fade-move {
+  transition: transform 0.3s ease;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .page-header {
+    padding: var(--space-2xl) 0 var(--space-xl);
   }
 
+  .filters {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
